@@ -14,8 +14,8 @@ class Autocomplete {
   constructor() {
     this.trie = new Node("", false);
   }
-  index = dict => (dict || []).forEach(this.insert);
-  insert = w => {
+  index = (dict) => (dict || []).forEach(this.insert);
+  insert = (w) => {
     let node = this.trie;
     for (let i = 0; i < w.length; i++) {
       const [val, isWord] = [w[i], w.length === i + 1];
@@ -24,7 +24,7 @@ class Autocomplete {
       node = node.children[val];
     }
   };
-  search = q => {
+  search = (q) => {
     if (!q) return [];
     const res = [];
     // BFS starting from the trie root
@@ -34,8 +34,8 @@ class Autocomplete {
       [str, count] = [str + node.val, count + 1];
       if (node.isWord && str.length >= q.length) res.push(str);
       Object.values(node.children)
-        .filter(n => count >= q.length || n.val === q[count])
-        .forEach(n => queue.push([n, str, count]));
+        .filter((n) => count >= q.length || n.val === q[count])
+        .forEach((n) => queue.push([n, str, count]));
     }
     return res;
   };
@@ -67,18 +67,16 @@ const tests = [
   [dict, "cat", ["cat"]],
   [dict, "catt", []],
   [dict, "can", ["canister"]],
-  [dict, "cant", []]
+  [dict, "cant", []],
 ];
 const functions = [test_autocomplete];
 
-tests.forEach(v => {
-  functions.forEach(f => {
+tests.forEach((v) => {
+  functions.forEach((f) => {
     const res = f(v[0], v[1], v[2]);
     console.assert(
       res === true,
-      `Function ${f.name} failed for [${v}] case [Expected: ${
-        v[2]
-      }, Got: ${res}]`
+      `Function ${f.name} failed for [${v}] case [Expected: ${v[2]}, Got: ${res}]`
     );
   });
 });

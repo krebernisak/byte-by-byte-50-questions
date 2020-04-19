@@ -32,7 +32,7 @@ class DirectedGraph {
       if (node === b) break;
       let adjList = this.graph.get(node);
       // Add all the children to the queue
-      adjList.forEach(v => {
+      adjList.forEach((v) => {
         // Skip visited
         if (!parents.has(v)) {
           queue.push(v);
@@ -58,8 +58,8 @@ class DirectedGraph {
 // Simple test helper
 const test_shortestPath = (vertices, edges, path) => {
   const g = new DirectedGraph();
-  vertices.forEach(v => g.addVertex(v));
-  edges.forEach(v => g.addEdge(v[0], v[1]));
+  vertices.forEach((v) => g.addVertex(v));
+  edges.forEach((v) => g.addEdge(v[0], v[1]));
   const res = g.shortestPath(path[0], path[1]);
   return !!res ? res.join("") : res;
 };
@@ -67,51 +67,79 @@ const test_shortestPath = (vertices, edges, path) => {
 const tests = [
   [
     ["A", "B", "C", "D"],
-    [["A", "D"], ["A", "C"], ["B", "C"], ["C", "D"]],
+    [
+      ["A", "D"],
+      ["A", "C"],
+      ["B", "C"],
+      ["C", "D"],
+    ],
     [],
-    null
+    null,
   ],
   [
     ["A", "B", "C", "D"],
-    [["A", "D"], ["A", "C"], ["B", "C"], ["C", "D"]],
+    [
+      ["A", "D"],
+      ["A", "C"],
+      ["B", "C"],
+      ["C", "D"],
+    ],
     ["A", null],
-    null
+    null,
   ],
   [
     ["A", "B", "C", "D"],
-    [["A", "D"], ["A", "C"], ["B", "C"], ["C", "D"]],
+    [
+      ["A", "D"],
+      ["A", "C"],
+      ["B", "C"],
+      ["C", "D"],
+    ],
     ["A", "A"],
-    ""
+    "",
   ],
   [
     ["A", "B", "C", "D"],
-    [["A", "D"], ["A", "C"], ["B", "C"], ["C", "D"]],
+    [
+      ["A", "D"],
+      ["A", "C"],
+      ["B", "C"],
+      ["C", "D"],
+    ],
     ["A", "E"],
-    null
+    null,
   ],
   [
     ["A", "B", "C", "D"],
-    [["A", "D"], ["A", "C"], ["B", "C"], ["C", "D"]],
+    [
+      ["A", "D"],
+      ["A", "C"],
+      ["B", "C"],
+      ["C", "D"],
+    ],
     ["A", "C"],
-    "AC"
+    "AC",
   ],
   [
     ["A", "B", "C", "D"],
-    [["A", "B"], ["A", "C"], ["B", "C"], ["C", "D"]],
+    [
+      ["A", "B"],
+      ["A", "C"],
+      ["B", "C"],
+      ["C", "D"],
+    ],
     ["A", "D"],
-    "ACD"
-  ]
+    "ACD",
+  ],
 ];
 const functions = [test_shortestPath];
 
 tests.forEach((v, i) => {
-  functions.forEach(f => {
+  functions.forEach((f) => {
     const res = f(v[0], v[1], v[2]);
     console.assert(
       res === v[3],
-      `Function ${f.name} failed for [${v}] case [Expected: ${
-        v[3]
-      }, Got: ${res}]`
+      `Function ${f.name} failed for [${v}] case [Expected: ${v[3]}, Got: ${res}]`
     );
   });
 });

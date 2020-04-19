@@ -51,18 +51,16 @@ const tests = [
   [[1, 2, 3, 4, 5], 2, 3],
   [[1, 2, 3, 4, 5], 3, 2],
   [[1, 2, 3, 4, 5], 4, 1],
-  [[1, 2, 3, 4, 5], 5, null]
+  [[1, 2, 3, 4, 5], 5, null],
 ];
 const functions = [test_nthToLast];
 
-tests.forEach(v => {
-  functions.forEach(f => {
+tests.forEach((v) => {
+  functions.forEach((f) => {
     const res = f(v[0], v[1]);
     console.assert(
       res === v[2],
-      `Function ${f.name} failed for [${v}] case [Expected: ${
-        v[2]
-      }, Got: ${res}]`
+      `Function ${f.name} failed for [${v}] case [Expected: ${v[2]}, Got: ${res}]`
     );
   });
 });

@@ -23,7 +23,7 @@ class Node {
 }
 
 // Remove duplicates from a linked list
-const dedup = list => {
+const dedup = (list) => {
   let set = new Set();
   let prev = null;
   while (list !== null) {
@@ -53,22 +53,35 @@ const test_dedup = (input, output) => {
 const tests = [
   [[], []],
   [[1], [1]],
-  [[1, 2], [1, 2]],
-  [[1, 2, 3, 4], [1, 2, 3, 4]],
-  [[1, 2, 3, 4, 4], [1, 2, 3, 4]],
-  [[1, 1, 2, 2, 3, 4], [1, 2, 3, 4]],
-  [[1, 2, 3, 4, 4, 4, 4, 2, 2], [1, 2, 3, 4]]
+  [
+    [1, 2],
+    [1, 2],
+  ],
+  [
+    [1, 2, 3, 4],
+    [1, 2, 3, 4],
+  ],
+  [
+    [1, 2, 3, 4, 4],
+    [1, 2, 3, 4],
+  ],
+  [
+    [1, 1, 2, 2, 3, 4],
+    [1, 2, 3, 4],
+  ],
+  [
+    [1, 2, 3, 4, 4, 4, 4, 2, 2],
+    [1, 2, 3, 4],
+  ],
 ];
 const functions = [test_dedup];
 
-tests.forEach(v => {
-  functions.forEach(f => {
+tests.forEach((v) => {
+  functions.forEach((f) => {
     const res = f(v[0], v[1]);
     console.assert(
       res === true,
-      `Function ${f.name} failed for [${v}] case [Expected: ${
-        v[1]
-      }, Got: ${res}]`
+      `Function ${f.name} failed for [${v}] case [Expected: ${v[1]}, Got: ${res}]`
     );
   });
 });

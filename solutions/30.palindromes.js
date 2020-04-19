@@ -26,7 +26,7 @@ class Node {
  * Determine whether the list is a palindrome
  * @param {Node} node
  */
-const isPalindrome = node => {
+const isPalindrome = (node) => {
   let p = node;
   let runner = node;
   let stack = [];
@@ -49,7 +49,7 @@ const isPalindrome = node => {
   return true;
 };
 
-const test_isPalindrome = arr => {
+const test_isPalindrome = (arr) => {
   const head = Node.from(arr);
   return isPalindrome(head);
 };
@@ -63,18 +63,16 @@ const tests = [
   [[4, 2, 4], true],
   [[4, 2, 3, 3, 2, 4], true],
   [[4, 2, 3, 5], false],
-  [[4, 2, 3, 1], false]
+  [[4, 2, 3, 1], false],
 ];
 const functions = [test_isPalindrome];
 
-tests.forEach(v => {
-  functions.forEach(f => {
+tests.forEach((v) => {
+  functions.forEach((f) => {
     const res = f(v[0]);
     console.assert(
       res === v[1],
-      `Function ${f.name} failed for [${v}] case [Expected: ${
-        v[1]
-      }, Got: ${res}]`
+      `Function ${f.name} failed for [${v}] case [Expected: ${v[1]}, Got: ${res}]`
     );
   });
 });

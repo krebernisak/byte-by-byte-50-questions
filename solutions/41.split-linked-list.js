@@ -23,7 +23,7 @@ class Node {
 }
 
 // Split the list into two equal halves.
-const divide = list => {
+const divide = (list) => {
   if (!list) return null;
   let slow = list;
   let fast = list;
@@ -50,18 +50,16 @@ const tests = [
   [[1, 2, 3, 4], 3],
   [[1, 2, 3, 4, 5], 4],
   [[1, 2, 3, 4, 5, 6], 4],
-  [[1, 2, 3, 4, 5, 6, 7], 5]
+  [[1, 2, 3, 4, 5, 6, 7], 5],
 ];
 const functions = [test_divide];
 
-tests.forEach(v => {
-  functions.forEach(f => {
+tests.forEach((v) => {
+  functions.forEach((f) => {
     const res = f(v[0], v[1]);
     console.assert(
       res === true,
-      `Function ${f.name} failed for [${v}] case [Expected: ${
-        v[1]
-      }, Got: ${res}]`
+      `Function ${f.name} failed for [${v}] case [Expected: ${v[1]}, Got: ${res}]`
     );
   });
 });

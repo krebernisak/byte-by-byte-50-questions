@@ -22,7 +22,7 @@ class Node {
   }
 
   printReversed = () => {
-    const _self = n => {
+    const _self = (n) => {
       if (!n) return;
       if (n.next) _self(n.next);
       console.log(n.val);

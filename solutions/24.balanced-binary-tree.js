@@ -10,9 +10,9 @@ class Node {
 }
 
 const UNBALANCED = -1;
-const isBalanced = n => getBalancedHeight(n) !== UNBALANCED;
+const isBalanced = (n) => getBalancedHeight(n) !== UNBALANCED;
 // Get height if balanced or -1
-const getBalancedHeight = n => {
+const getBalancedHeight = (n) => {
   if (n === null) return 0;
   const heightLeft = getBalancedHeight(n.left);
   if (heightLeft === UNBALANCED) return UNBALANCED;

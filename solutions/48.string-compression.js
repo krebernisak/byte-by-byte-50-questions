@@ -1,7 +1,12 @@
 // 48. String Compression
+// Question: Given a string, write a function to compress it by shortening every
+//   sequence of the same character to that character followed by the number of
+//   repetitions. If the compressed string is longer than the original,
+//   you should return the original string.
 // https://www.byte-by-byte.com/stringcompression/
+// [String]
 
-const compress = s => {
+const compress = (s) => {
   if (!s) return s;
   let result = "";
   let count = 1;
@@ -23,18 +28,16 @@ const tests = [
   ["aaa", "a3"],
   ["abc", "abc"],
   ["aaabccd", "aaabccd"],
-  ["aaabccddddd", "a3b1c2d5"]
+  ["aaabccddddd", "a3b1c2d5"],
 ];
 const functions = [compress];
 
-tests.forEach(v => {
-  functions.forEach(f => {
+tests.forEach((v) => {
+  functions.forEach((f) => {
     const res = f(v[0]);
     console.assert(
       res === v[1],
-      `Function ${f.name} failed for [${v}] case [Expected: ${
-        v[1]
-      }, Got: ${res}]`
+      `Function ${f.name} failed for [${v}] case [Expected: ${v[1]}, Got: ${res}]`
     );
   });
 });

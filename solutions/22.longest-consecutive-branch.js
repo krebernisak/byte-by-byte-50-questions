@@ -37,14 +37,14 @@ class BinaryTree {
       }
     }
   }
-  insertAll = data => data.forEach(v => this.insert(new Node(v)));
+  insertAll = (data) => data.forEach((v) => this.insert(new Node(v)));
   print = () => console.log(JSON.stringify(this.root, "", 2));
 }
 
 const lcb = (node, length = 0) => {
   if (!node) return length;
   return [node.left, node.right]
-    .map(n => {
+    .map((n) => {
       if (!n || n.val !== node.val + 1) return length + 1;
       return lcb(n, length + 1);
     })
@@ -66,18 +66,16 @@ const tests = [
   [[1, 2, 3, 4], 2],
   [[1, 2, 3, 3], 3],
   [[1, 2, 3, 3, 4, 5, 6, 4], 4],
-  [[0, 1, 2, 1, 2, 1, 3, 4, 4, 3], 4]
+  [[0, 1, 2, 1, 2, 1, 3, 4, 4, 3], 4],
 ];
 const functions = [test_lcb];
 
-tests.forEach(v => {
-  functions.forEach(f => {
+tests.forEach((v) => {
+  functions.forEach((f) => {
     const res = f(v[0], v[1]);
     console.assert(
       res === true,
-      `Function ${f.name} failed for [${v}] case [Expected: ${
-        v[1]
-      }, Got: ${res}]`
+      `Function ${f.name} failed for [${v}] case [Expected: ${v[1]}, Got: ${res}]`
     );
   });
 });

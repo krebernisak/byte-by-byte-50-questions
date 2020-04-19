@@ -35,7 +35,7 @@ class BinarySearchTree {
 
     // DFS => find node position
     const stack = [this.root];
-    const incrementChildren = () => stack.forEach(n => n.children++);
+    const incrementChildren = () => stack.forEach((n) => n.children++);
 
     while (true) {
       const next = stack[stack.length - 1]; // do not pop to increment children after insertion
@@ -60,10 +60,10 @@ class BinarySearchTree {
     }
   }
 
-  insertAll = data => data.forEach(v => this.insert(new Node(v)));
+  insertAll = (data) => data.forEach((v) => this.insert(new Node(v)));
 
   // Return the number of nodes in a given subtree
-  subtreeSize = node => (!node ? 0 : node.children + 1);
+  subtreeSize = (node) => (!node ? 0 : node.children + 1);
 
   // Return each node with probability 1/N
   randomNode() {
@@ -104,18 +104,16 @@ const tests = [
   [[5, 6, 7, 1, 2, 3, 4], 6, 7],
   [[5, 6, 7, 1, 2, 3, 4], 3, 4],
   [[51, 16, 27, 11, 22, 31, 14], 3, 22],
-  [[51, 16, 27, 11, 22, 31, 14], 4, 27]
+  [[51, 16, 27, 11, 22, 31, 14], 4, 27],
 ];
 const functions = [test_dataAt];
 
 tests.forEach((v, i) => {
-  functions.forEach(f => {
+  functions.forEach((f) => {
     const res = f(v[0], v[1]);
     console.assert(
       res === v[2],
-      `Function ${f.name} failed for [${v}] case [Expected: ${
-        v[2]
-      }, Got: ${res}]`
+      `Function ${f.name} failed for [${v}] case [Expected: ${v[2]}, Got: ${res}]`
     );
   });
 });

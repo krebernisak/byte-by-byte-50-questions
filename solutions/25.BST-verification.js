@@ -37,7 +37,7 @@ class BinaryTree {
       }
     }
   }
-  insertAll = data => data.forEach(v => this.insert(new Node(v)));
+  insertAll = (data) => data.forEach((v) => this.insert(new Node(v)));
   print = () => console.log(JSON.stringify(this.root, "", 2));
 }
 
@@ -55,7 +55,7 @@ const isBST = (
 };
 
 // test helper
-const test_isBST = data => {
+const test_isBST = (data) => {
   const bt = new BinaryTree();
   bt.insertAll(data);
   return isBST(bt.root);
@@ -71,18 +71,16 @@ const tests = [
   [[2, 1, 3], true],
   [[2, 1, 3, 4], false],
   [[5, 5, 7, 5, 5, 6, 8], false],
-  [[5, 2, 7, 1, 3, 6, 8], true]
+  [[5, 2, 7, 1, 3, 6, 8], true],
 ];
 const functions = [test_isBST];
 
-tests.forEach(v => {
-  functions.forEach(f => {
+tests.forEach((v) => {
+  functions.forEach((f) => {
     const res = f(v[0]);
     console.assert(
       res === v[1],
-      `Function ${f.name} failed for [${v}] case [Expected: ${
-        v[1]
-      }, Got: ${res}]`
+      `Function ${f.name} failed for [${v}] case [Expected: ${v[1]}, Got: ${res}]`
     );
   });
 });

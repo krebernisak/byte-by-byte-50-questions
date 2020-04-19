@@ -2,6 +2,8 @@
 // https://www.byte-by-byte.com/sortstacks/
 // [Stack][Sort]
 
+// TODO: iteration
+
 const naturalOrder = (a, b) => {
   if (a === b) return 0;
   return a > b ? 1 : -1;
@@ -50,7 +52,7 @@ const insertionSort = (stack, compare = naturalOrder) => {
   return _self(stack, []);
 };
 
-const test_sort = fn => (input, comparator, expected) => {
+const test_sort = (fn) => (input, comparator, expected) => {
   const output = fn(input, comparator);
   if (output.length !== expected.length) return output;
   const isExpected = (acc, v, i) => acc && v === expected[i];
@@ -67,20 +69,18 @@ const test_cases = [
   [1, 2, 3, 4],
   [1, 3, 5, 2, 6, 7, 8, 2, 3],
   [4, 5, 2, 4, 5, 5, 9, 1, 9],
-  ["A", "C", "B", "A"]
+  ["A", "C", "B", "A"],
 ];
 const toTest = (c, fn) => [[...c], fn, [...c].sort(fn).reverse()];
-const tests = test_orders.flatMap(o => test_cases.map(c => toTest(c, o)));
+const tests = test_orders.flatMap((o) => test_cases.map((c) => toTest(c, o)));
 const functions = [test_sort(selectionSort), test_sort(insertionSort)];
 
-tests.forEach(v => {
-  functions.forEach(f => {
+tests.forEach((v) => {
+  functions.forEach((f) => {
     const res = f(v[0], v[1], v[2]);
     console.assert(
       res === true,
-      `Function ${f.name} failed for [${v}] case [Expected: ${
-        v[2]
-      }, Got: ${res}]`
+      `Function ${f.name} failed for [${v}] case [Expected: ${v[2]}, Got: ${res}]`
     );
   });
 });
