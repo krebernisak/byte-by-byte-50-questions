@@ -64,7 +64,7 @@ This final step is critical. Not only does it show your interviewer that you're 
 
 ### Bit Manipulation(32-37)
 - [x] [Two Missing Numbers](solutions/32.two-missing-numbers.js)
-- [ ] [Bit Int Modulus](solutions/33.bit-int-modulo.js)
+- [x] [Bit Int Modulus](solutions/33.bit-int-modulo.js)
 - [x] [Swap Variables](solutions/34.swap-variables.js)
 - [x] [Gray Code](solutions/35.gray-code.js)
 - [x] [Rotate Bits](solutions/36.rotate-bits.js)
@@ -72,7 +72,7 @@ This final step is critical. Not only does it show your interviewer that you're 
 
 ### Linked List(38-44)
 - [x] [Linked List Cycles](solutions/38.linked-list-cycles.js)
-- [ ] [Random Linked List](solutions/39.random-linked-list.js)
+- [x] [Random Linked List](solutions/39.random-linked-list.js)
 - [x] [Dedup Linked List](solutions/40.dedup-linked-list.js)
 - [x] [Split a Linked List](solutions/41.split-linked-list.js)
 - [x] [Nth to the Last Element](solutions/42.Nth-last-element.js)
