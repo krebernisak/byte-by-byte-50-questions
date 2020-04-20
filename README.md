@@ -45,7 +45,7 @@ This final step is critical. Not only does it show your interviewer that you're 
 
 ### Recursion(17-26)
 - [x] [Random Binary Tree](solutions/17.random-binary-tree.js)
-- [ ] [Lowest Common Ancestor](solutions/18.lowest-common-ancestor.js)
+- [x] [Lowest Common Ancestor](solutions/18.lowest-common-ancestor.js)
 - [x] [Sum](solutions/19.sum.js)
 - [x] [Reverse Stack](solutions/20.reverse-stack.js)
 - [ ] [Tree to Doubly Linked List](solutions/21.tree-to-doubly-linked-list.js)
