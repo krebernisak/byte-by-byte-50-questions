@@ -27,7 +27,7 @@ This final step is critical. Not only does it show your interviewer that you're 
 - [ ] [Median of Arrays](solutions/01.median-of-arrays.js)
 - [x] [0-1 Knapsack](solutions/02.0-1-knapsack.js)
 - [x] [Matrix Product](solutions/03.matrix-product.js)
-- [ ] [Find Duplicates](solutions/04.find-duplicates.js)
+- [x] [Find Duplicates](solutions/04.find-duplicates.js)
 - [ ] [Consecutive Array](solutions/05.consecutive-array.js)
 - [ ] [Zero Matrix](solutions/06.zero-matrix.js)
 - [ ] [Square Submatrix](solutions/07.square-submatrix.js)
