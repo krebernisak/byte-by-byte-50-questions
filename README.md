@@ -32,7 +32,7 @@ This final step is critical. Not only does it show your interviewer that you're 
 - [ ] [Zero Matrix](solutions/06.zero-matrix.js)
 - [ ] [Square Submatrix](solutions/07.square-submatrix.js)
 - [ ] [Merge K Arrays](solutions/08.merge-k-arrays.js)
-- [ ] [Matrix Search](solutions/09.matrix-search.js)
+- [x] [Matrix Search](solutions/09.matrix-search.js)
 - [ ] [Merge Arrays](solutions/10.merge-arrays.js)
 - [ ] [Zero Sum Subarray](solutions/11.zero-sum-subarray.js)
 - [ ] [Permutations](solutions/12.permutations.js)

@@ -3,3 +3,86 @@
 //   write a function to determine whether the array contains an element x.
 // Answer: https://www.byte-by-byte.com/matrixsearch/
 // [Binary Search]
+
+const binarySearch = (getData, low, high, val) => {
+  while (low <= high) {
+    const mid = Math.floor(low + (high - low) / 2);
+    const midVal = getData(mid);
+    if (midVal === val) return mid;
+    else if (midVal > val) high = mid - 1;
+    else low = mid + 1;
+  }
+  return -1;
+};
+
+const matrixSearch = (data, val) => {
+  const n = data.length;
+  const m = data[0].length;
+  // Function that maps from 1D index to 2D indexes
+  const getData = (index) => {
+    const i = Math.floor(index / m);
+    const j = index % m;
+    assert(index === i * m + j); // Example for going back 2D => 1D
+    return data[i][j];
+  };
+  return binarySearch(getData, 0, n * m - 1, val) >= 0;
+};
+
+// Solution by Sam Gavis-Hughson
+const matrixSearch_ScanRowCol = (data, val) => {
+  if (data.length == 0 || data[0].length == 0) return false;
+  let row = 0;
+  let col = data.length - 1;
+
+  while (row < data[0].length && col >= 0) {
+    if (data[row][col] === val) return true;
+    if (data[row][col] < val) row++;
+    else col--;
+  }
+
+  return false;
+};
+
+const matrix = [
+  [-10, -8, -6, -4, -3, -2],
+  [1, 2, 3, 4, 5, 6],
+  [6, 6, 6, 6, 6, 7],
+  [8, 9, 13, 17, 18, 19],
+  [19, 20, 200, 217, 218, 319],
+];
+
+const tests = [
+  [matrix, -10, true],
+  [matrix, -4, true],
+  [matrix, 0, false],
+  [matrix, -1, false],
+  [matrix, -8, true],
+  [matrix, 4, true],
+  [matrix, 6, true],
+  [matrix, 19, true],
+  [matrix, 319, true],
+];
+
+// test helper
+const test_found = (fn) => {
+  return (data, val, expected) => {
+    const res = matrixSearch(data, val);
+    return expected === res;
+  };
+};
+const functions = [
+  test_found(matrixSearch),
+  test_found(matrixSearch_ScanRowCol),
+];
+
+tests.forEach((v, i) => {
+  functions.forEach((f) => {
+    const res = f(...v);
+    console.assert(
+      res === true,
+      `Function ${f.name} failed for [${v}] case [Expected: ${v[2]}, Got: ${res}]`
+    );
+  });
+});
+
+console.log("Tests Finished");
