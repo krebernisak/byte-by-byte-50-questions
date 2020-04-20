@@ -56,7 +56,7 @@ This final step is critical. Not only does it show your interviewer that you're 
 - [ ] [Smallest Change](solutions/26.smallest-change.js)
 
 ### Stack(27-31)
-- [ ] [Inorder Traversal](solutions/27.inorder-traversal.js)
+- [x] [Inorder Traversal](solutions/27.inorder-traversal.js)
 - [x] [Sort Stacks](solutions/28.sort-stacks.js)
 - [x] [Stack from Queues](solutions/29.stack-from-queues.js)
 - [x] [Palindromes](solutions/30.palindromes.js)
