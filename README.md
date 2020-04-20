@@ -60,7 +60,7 @@ This final step is critical. Not only does it show your interviewer that you're 
 - [x] [Sort Stacks](solutions/28.sort-stacks.js)
 - [x] [Stack from Queues](solutions/29.stack-from-queues.js)
 - [x] [Palindromes](solutions/30.palindromes.js)
-- [ ] [Max Stacks](solutions/31.max-stacks.js)
+- [x] [Max Stacks](solutions/31.max-stacks.js)
 
 ### Bit Manipulation(32-37)
 - [x] [Two Missing Numbers](solutions/32.two-missing-numbers.js)
