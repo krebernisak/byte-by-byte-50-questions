@@ -1,6 +1,8 @@
 // 22. Longest Consecutive Branch
-// https://www.byte-by-byte.com/longestbranch/
-// [Tree]
+// Question: Given a tree, write a function to find the length of the longest
+//   branch of nodes in increasing consecutive order.
+// Answer: https://www.byte-by-byte.com/longestbranch/
+// Tags: [Tree]
 
 class Node {
   constructor(val, left = null, right = null) {

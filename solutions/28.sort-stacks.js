@@ -1,6 +1,7 @@
 // 28. Sort Stacks
-// https://www.byte-by-byte.com/sortstacks/
-// [Stack][Sort]
+// Question: Given a stack, sort the elements in the stack using one additional stack.
+// Answer: https://www.byte-by-byte.com/sortstacks/
+// Tags: [Stack][Sort]
 
 // TODO: repeat this!
 // TODO: iteration

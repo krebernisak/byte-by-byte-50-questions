@@ -1,6 +1,7 @@
 // 32. Two Missing Numbers
-// https://www.byte-by-byte.com/twomissingnumbers/
-// [Bitwise]
+// Question: Given an array containing all the numbers from 1 to n except two, find the two missing numbers.
+// Answer: https://www.byte-by-byte.com/twomissingnumbers/
+// Tags: [Bitwise]
 
 /**
  * Given an array containing all the numbers from 1 to n except two,

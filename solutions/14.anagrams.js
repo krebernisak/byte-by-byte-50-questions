@@ -1,6 +1,8 @@
 // 14. Anagrams
-// https://www.byte-by-byte.com/anagrams/
-// [Array]
+// Question: Given two strings, write a function to determine whether they are
+//   anagrams.
+// Answer: https://www.byte-by-byte.com/anagrams/
+// Tags: [Array]
 
 // Slow O(n*log(n)) time & O(n) space
 const isAnagram1 = (s1, s2) => {

@@ -1,5 +1,7 @@
 // 24. Balanced Binary Tree
-// https://www.byte-by-byte.com/balancedtree/
+// Question: Given a binary tree, write a function to determine whether the tree is balanced.
+// Answer: https://www.byte-by-byte.com/balancedtree/
+// Tags: [Tree][Recursion]
 
 class Node {
   constructor(val, left = null, right = null) {

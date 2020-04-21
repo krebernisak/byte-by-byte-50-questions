@@ -1,6 +1,8 @@
 // 3. Matrix product
-// https://www.byte-by-byte.com/matrixproduct/
-// [Array]
+// Question: Given a matrix, find the path from top left to bottom right with the
+//   greatest product by moving only down and right.
+// Answer: https://www.byte-by-byte.com/matrixproduct/
+// Tags: [Array]
 
 const getProduct = (data) => data.reduce((acc, val) => acc * val, 1);
 

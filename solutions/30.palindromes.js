@@ -1,6 +1,7 @@
 // 30. Palindromes
-// https://www.byte-by-byte.com/palindromes/
-// [Stack][Linked List]
+// Question: Given a linked list, write a function to determine whether the list is a palindrome.
+// Answer: https://www.byte-by-byte.com/palindromes/
+// Tags: [Stack][Linked List]
 
 class Node {
   constructor(val, next = null) {

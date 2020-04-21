@@ -1,6 +1,8 @@
 // 29. Stack from Queues
-// https://www.byte-by-byte.com/stackfromqueues/
-// [Stack][Queue]
+// Question: Implement a LIFO stack with basic functionality (push and pop) using FIFO queues to store the data.
+// Answer: https://www.byte-by-byte.com/stackfromqueues/
+// Tags: [Stack][Queue]
+
 // https://jsperf.com/queue-push-unshift-vs-shift-pop
 // https://stackoverflow.com/a/1590277/1252289
 

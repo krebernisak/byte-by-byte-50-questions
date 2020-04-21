@@ -1,7 +1,7 @@
 // 50. Priority Queue
 // Question: Implement a Priority Queue
-// https://www.byte-by-byte.com/priorityqueue/
-// [Heap][Priority Queue]
+// Answer: https://www.byte-by-byte.com/priorityqueue/
+// Tags: [Heap][Priority Queue]
 
 const naturalOrder = (a, b) => {
   if (a === b) return 0;

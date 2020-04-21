@@ -2,6 +2,7 @@
 // Question: Given an unsorted array, find the length of the longest sequence of
 //   consecutive numbers in the array.
 // Answer: https://www.byte-by-byte.com/consecutivearray/
+// Tags: [Array]
 
 const consecutive = (data) => {
   const dataSet = new Set(data);

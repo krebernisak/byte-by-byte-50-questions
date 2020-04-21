@@ -1,8 +1,8 @@
 // 51. Kth Most Frequent String
 // Question: Given a list of strings, write a function to get the kth most
 //   frequently occurring string.
-// https://www.byte-by-byte.com/kthmostfrequentstring/
-// [Heap][Priority Queue]
+// Answer: https://www.byte-by-byte.com/kthmostfrequentstring/
+// Tags: [Heap][Priority Queue]
 
 // O(n + n*log(n))
 const kthMostFrequent = (data, k = 0) => {

@@ -3,7 +3,41 @@
 //   find the maximum value you can generate from items where the sum of the
 //   weights is less than the max.
 // Answer: https://www.byte-by-byte.com/01knapsack/
-// [Recursion][DP]
+// Tags: [Recursion][Ordering][Combinations][DP]
+
+// First find all combinations and then filter on those
+const knapsack_Combinations = (items, maxWeight) => {
+  if (!items) return 0;
+  if (maxWeight === 0) return 0;
+
+  const allCombinations = [];
+
+  const _combinations = (i, path) => {
+    if (i === items.length) {
+      allCombinations.push(path);
+      return;
+    }
+
+    // Find all combinations that EXCLUDE the current item
+    _combinations(i + 1, path);
+    // Find all combinations that INCLUDE the current item
+    _combinations(i + 1, [...path, items[i]]);
+  };
+
+  // Find all combinations
+  _combinations(0, []);
+
+  console.log(allCombinations);
+  const _weightSum = (items) => items.reduce((acc, item) => acc + item[0], 0);
+  const _valueSum = (items) => items.reduce((acc, item) => acc + item[1], 0);
+  const _underMaxWeight = (items) => _weightSum(items) <= maxWeight;
+  const _max = (a, b) => Math.max(a, b);
+
+  return allCombinations
+    .filter(_underMaxWeight) // only valid
+    .map(_valueSum) // with total value
+    .reduce(_max); // only max
+};
 
 // Recursively check every combination of items by traversing list of items
 // and either including or excluding each item. Uses a cache to improve performance.
@@ -120,7 +154,7 @@ const test = (fn) => {
   };
 };
 
-const functions = [knapsack_TopDown, knapsack_BottomUp];
+const functions = [knapsack_Combinations, knapsack_TopDown, knapsack_BottomUp];
 
 tests.forEach((v) => {
   functions.forEach((f) => {

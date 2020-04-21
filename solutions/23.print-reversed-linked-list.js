@@ -1,6 +1,7 @@
 // 23. Print Reversed Linked List
-// https://www.byte-by-byte.com/printreversedlist/
-// [Linked List][Recursion]
+// Question: Given a linked list, write a function that prints the nodes of the list in reverse order.
+// Answer: https://www.byte-by-byte.com/printreversedlist/
+// Tags: [Linked List][Recursion]
 
 class Node {
   constructor(val, next = null) {

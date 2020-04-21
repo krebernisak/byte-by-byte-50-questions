@@ -35,7 +35,7 @@ This final step is critical. Not only does it show your interviewer that you're 
 - [x] [Matrix Search](solutions/09.matrix-search.js)
 - [x] [Merge Arrays](solutions/10.merge-arrays.js)
 - [x] [Zero Sum Subarray](solutions/11.zero-sum-subarray.js)
-- [ ] [Permutations](solutions/12.permutations.js)
+- [x] [Permutations](solutions/12.permutations.js)
 - [ ] [N Stacks](solutions/13.n-stacks.js)
 - [x] [Anagrams](solutions/14.anagrams.js)
 

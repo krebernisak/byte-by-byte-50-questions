@@ -2,6 +2,7 @@
 // Question: Given an array of integers where each value 1 <= x <= len(array), write
 //   a function that finds all the duplicates in the array.
 // Answer: https://www.byte-by-byte.com/findduplicates/
+// Tags: [Array]
 
 const onlyDuplicates = (val, i, arr) => i !== 0 && val === arr[i - 1];
 const onlyDistinct = (val, i, arr) => i === 0 || val !== arr[i - 1];

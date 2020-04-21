@@ -1,6 +1,7 @@
 // 40. Dedup Linked List
-// https://www.byte-by-byte.com/deduplinkedlist/
-// [Linked List]
+// Question: Given an unsorted linked list, write a function to remove all the duplicates.
+// Answer: https://www.byte-by-byte.com/deduplinkedlist/
+// Tags: [Linked List]
 
 class Node {
   constructor(val, next = null) {

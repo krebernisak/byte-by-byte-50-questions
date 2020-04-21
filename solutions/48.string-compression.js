@@ -3,8 +3,8 @@
 //   sequence of the same character to that character followed by the number of
 //   repetitions. If the compressed string is longer than the original,
 //   you should return the original string.
-// https://www.byte-by-byte.com/stringcompression/
-// [String]
+// Answer: https://www.byte-by-byte.com/stringcompression/
+// Tags: [String]
 
 const compress = (s) => {
   if (!s) return s;

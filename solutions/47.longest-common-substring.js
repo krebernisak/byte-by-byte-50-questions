@@ -1,7 +1,7 @@
 // 47. Longest Common Substring
 // Question: Given two strings, write a function that returns the longest common substring.
 // Answer: https://www.byte-by-byte.com/longestsubstring/
-// [Recursion][DP]
+// Tags: [Recursion][DP]
 // Leetcode similar:
 //   https://leetcode.com/problems/maximum-length-of-repeated-subarray/
 //   https://leetcode.com/problems/longest-common-subsequence/

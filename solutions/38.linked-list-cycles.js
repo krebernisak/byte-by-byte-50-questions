@@ -1,7 +1,7 @@
 // 38. Linked List Cycles
 // Question: Given a linked list, determine whether it contains a cycle.
 // Answer: https://www.byte-by-byte.com/listcycles/
-// [Linked List]
+// Tags: [Linked List]
 
 class Node {
   constructor(val, next = null) {

@@ -2,7 +2,8 @@
 // Question: Given an array, write a function to find any subarray that sums to zero,
 //   if one exists.
 // Answer: https://www.byte-by-byte.com/zerosum/
-// Keyword: Slope, Sum Diff, Graph of price
+// Tags: [Array]
+// Keywords: Slope, Sum Diff, Graph of price
 
 const zeroSum = (data) => {
   // Track movements in sum, find same elevation

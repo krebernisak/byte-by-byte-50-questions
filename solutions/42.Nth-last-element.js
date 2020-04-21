@@ -1,6 +1,7 @@
 // 42. Nth to the Last Element
-// https://www.byte-by-byte.com/nthtolastelement/
-// [Linked List]
+// Question: Given a linked list, and an input n, write a function that returns the nth-to-last element of the linked list.
+// Answer: https://www.byte-by-byte.com/nthtolastelement/
+// Tags: [Linked List]
 
 class Node {
   constructor(val, next = null) {

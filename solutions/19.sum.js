@@ -1,6 +1,7 @@
 // 19. Sum
-// https://www.byte-by-byte.com/sum/
-// [Bitwise]
+// Question: Given two integers, write a function to sum the numbers without using any arithmetic operators.
+// Answer: https://www.byte-by-byte.com/sum/
+// Tags: [Bitwise]
 
 // XOR (a ^ b) is addition without carry.
 // (a & b) is the carry-out from each bit.

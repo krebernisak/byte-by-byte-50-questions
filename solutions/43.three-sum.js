@@ -1,6 +1,7 @@
 // 43. Three Sum
-// https://www.byte-by-byte.com/threesum/
-// [Two Pointer][2Sum][3Sum][kSum]
+// Question: Given a list of integers, write a function that returns all sets of 3 numbers in the list, a, b, and c, so that a + b + c == 0.
+// Answer: https://www.byte-by-byte.com/threesum/
+// Tags: [Two Pointer][2Sum][3Sum][kSum]
 
 const _binarySearch = (data, low, high, target) => {
   while (low <= high) {

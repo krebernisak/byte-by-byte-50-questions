@@ -1,7 +1,7 @@
 // 49. Fibonacci Number
 // Question: Given an integer n, write a function to compute the nth Fibonacci number.
-// https://www.byte-by-byte.com/fibonacci/
-// [Recursion][DP]
+// Answer: https://www.byte-by-byte.com/fibonacci/
+// Tags: [Recursion][DP]
 
 // Top down recursive
 const fibonacci1 = (n) => {

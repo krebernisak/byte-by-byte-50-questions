@@ -1,7 +1,7 @@
 // 20. Reverse Stack
 // Question: Given a stack, reverse the items without creating any additional data structures.
 // Answer: https://www.byte-by-byte.com/reversestack/
-// [Stack]
+// Tags: [Stack]
 
 /**
  * The reverse method transposes the elements of the calling array object in place,

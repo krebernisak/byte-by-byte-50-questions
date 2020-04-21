@@ -1,7 +1,7 @@
 // 44. Tree Level Order
 // Question: Given a tree, write a function that prints out the nodes of the tree in level order.
-// https://www.byte-by-byte.com/treelevelorder/
-// [Tree][BFS]
+// Answer: https://www.byte-by-byte.com/treelevelorder/
+// Tags: [Tree][BFS]
 
 class Node {
   constructor(val, left = null, right = null) {

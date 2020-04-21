@@ -1,6 +1,7 @@
 // 41. Split a Linked List
-// https://www.byte-by-byte.com/splitlinkedlist/
-// [Linked List]
+// Question: Given a linked list, write a function to split the list into two equal halves.
+// Answer: https://www.byte-by-byte.com/splitlinkedlist/
+// Tags: [Linked List]
 
 class Node {
   constructor(val, next = null) {
