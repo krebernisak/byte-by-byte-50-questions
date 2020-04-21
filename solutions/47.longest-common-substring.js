@@ -6,23 +6,52 @@
 //   https://leetcode.com/problems/maximum-length-of-repeated-subarray/
 //   https://leetcode.com/problems/longest-common-subsequence/
 
-const longestSubstring_TopDown = (a, b) => {
+// Easy to find length, but harder to find longest substring using top down approach
+const longestSubstring_TopDown = (a, b) => {};
+
+const longestSubstring_BottomUp = (a, b) => {
   if (!a || !b) return "";
+  if (a === b) return a;
 
-  const _longestSubstring = (i, j) => {
-    if (i === 0 || j === 0) return "";
-  };
+  const cache = Array(a.length + 1)
+    .fill()
+    .map((_) => Array(b.length + 1).fill(0));
 
-  return _longestSubstring(a.length, b.length);
+  let out = "";
+  let maxLength = 0;
+  for (let i = 1; i <= a.length; i++) {
+    for (let j = 1; j <= b.length; j++) {
+      if (a[i - 1] === b[j - 1]) cache[i][j] = 1 + cache[i - 1][j - 1];
+      else
+        cache[i][j] = Math.max(
+          cache[i - 1][j],
+          cache[i][j - 1],
+          cache[i - 1][j - 1]
+        );
+      if (cache[i][j] > maxLength) {
+        maxLength = cache[i][j];
+        out = a.substring(i - maxLength + 1, i + 1);
+      }
+    }
+  }
+
+  return out;
 };
 
-const longestSubstring_BottomUp = (a, b) => {};
+//  ''  A  B  A  B
+//''[0, 0, 0, 0, 0]
+// B[0, 0, 1, 1, 1]
+// A[0, 1, 1, 2, 2]
+// B[0, 1, 2, 2, 3]
+// A[0, 1, 2, 3, 3]
+//               ^ RESULT
 
 const tests = [
   ["", "", ""],
-  ["ABAB", "BABA", "ABA"],
+  ["ABAB", "BABA", "BAB"],
+  ["ABABAA", "BABAABA", "BABAA"],
 ];
-const functions = [longestSubstring_TopDown, longestSubstring_BottomUp];
+const functions = [longestSubstring_BottomUp];
 
 tests.forEach((v) => {
   functions.forEach((f) => {

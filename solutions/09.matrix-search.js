@@ -4,9 +4,10 @@
 // Answer: https://www.byte-by-byte.com/matrixsearch/
 // [Binary Search]
 
+// Time complexity: O(log n)
 const binarySearch = (getData, low, high, val) => {
   while (low <= high) {
-    const mid = Math.floor(low + (high - low) / 2);
+    const mid = low + Math.floor((high - low) / 2);
     const midVal = getData(mid);
     if (midVal === val) return mid;
     else if (midVal > val) high = mid - 1;
@@ -15,6 +16,22 @@ const binarySearch = (getData, low, high, val) => {
   return -1;
 };
 
+/**
+ * Time complexity: O(log(n * m))
+ *
+ * This will not work if numbers are not in total order,
+ * but still sorted by challenge definition -> all rows and columns are in sorted order.
+ *
+ * Imagine the following:
+ *   [1, 10, 100]
+ *   [2, 11, 101]
+ *   [3, 12, 102]
+ *
+ * Then we need to do binary search by row first, and than by column (or vice versa).
+ *
+ * @param {number[][]} data - 2D matrix
+ * @param {number} val - value to search for
+ */
 const matrixSearch = (data, val) => {
   const n = data.length;
   const m = data[0].length;
@@ -28,7 +45,14 @@ const matrixSearch = (data, val) => {
   return binarySearch(getData, 0, n * m - 1, val) >= 0;
 };
 
-// Solution by Sam Gavis-Hughson
+/**
+ * Solution by Sam Gavis-Hughson
+ *
+ * Time complexity: O(n + m)
+ *
+ * @param {number[][]} data - 2D matrix
+ * @param {number} val - value to search for
+ */
 const matrixSearch_ScanRowCol = (data, val) => {
   if (data.length == 0 || data[0].length == 0) return false;
   let row = 0;
