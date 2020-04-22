@@ -6,6 +6,7 @@
 // https://jsperf.com/queue-push-unshift-vs-shift-pop
 // https://stackoverflow.com/a/1590277/1252289
 
+// TODO: Tests
 class Stack {
   constructor() {
     // We use our Queue implementation because Array.shift method is O(n) slow
@@ -38,11 +39,11 @@ class Stack {
    */
   pop() {
     while (this.primaryQ.length > 1) {
-      let el = this.primaryQ.shift();
-      if (this.primaryQ.length === 1) this.topElement = el;
+      const el = this.primaryQ.shift();
+      if (this.primaryQ.length === 2) this.topElement = el;
       this.secondaryQ.push(el);
     }
-    let result = this.primaryQ.shift();
+    const result = this.primaryQ.shift();
     [this.primaryQ, this.secondaryQ] = [this.secondaryQ, this.primaryQ];
     return result;
   }

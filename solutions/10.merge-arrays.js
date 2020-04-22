@@ -9,11 +9,14 @@ const mergeArrays = (a, b) => {
   if (!b) return a;
   let i = a.length - 1;
   let j = b.length - 1;
-  while (a[i] === 0) i--; // move pointer in a to first data cell > 0
 
-  let p = a.length - 1;
-  let n = i + 1 + b.length; // all data length
+  while (a[i] === 0) i--; // move pointer i to first data cell in a > 0
+  const aDataLength = i + 1; // a data length
+  const n = aDataLength + b.length; // all data length
+
+  let p = a.length - 1; // copy pointer (starting from back)
   while (p-- > n); // extra (unneeded) space
+
   while (p >= 0) {
     if (i < 0) a[p--] = b[j--];
     else if (j < 0) a[p--] = a[i--];
@@ -23,7 +26,7 @@ const mergeArrays = (a, b) => {
   return a;
 };
 
-let A = [1, 3, 5, 0, 0, 0, 0, 0, 0];
-let B = [2, 4, 6];
-let expected = [1, 2, 3, 4, 5, 6, 0, 0, 0];
+const A = [1, 3, 5, 0, 0, 0, 0, 0, 0];
+const B = [2, 4, 6];
+const expected = [1, 2, 3, 4, 5, 6, 0, 0, 0];
 assert(mergeArrays(A, B).toString() === expected.toString());

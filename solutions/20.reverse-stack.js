@@ -8,24 +8,32 @@
  * mutating the array, and returning a reference to the array.
  * @param {Array} stack
  */
-const reverse = (stack) => {
-  // if we can not use any additional data structures we can still use the call stack (recursion)
+const reverse_recursion = (stack) => {
   if (stack.length === 0) return stack;
   const val = stack.pop();
-  stack = reverse(stack);
+  stack = reverse_recursion(stack);
   insertAtBottom(stack, val);
   return stack;
 };
 
+const reverse_iteration = (stack) => {
+  if (stack.length === 0) return stack;
+  let n = stack.length;
+  while (n-- > 0) insertAtBottom(stack, stack.pop());
+  return stack;
+};
+
+// Always recursion! This is where we need the call stack (recursion),
+// if we can not use any additional data structures.
 const insertAtBottom = (stack, val) => {
   if (stack.length === 0) {
     stack.push(val);
     return;
   }
 
-  const temp = stack.pop();
+  const top = stack.pop();
   insertAtBottom(stack, val);
-  stack.push(temp);
+  stack.push(top);
 };
 
 const tests = [
@@ -49,12 +57,14 @@ const tests = [
 const test_isReversed = (fn) => {
   return (data, expected) => {
     const result = fn(data);
-    console.log(result);
     return expected.toString() == result.toString();
   };
 };
 
-const functions = [test_isReversed(reverse)];
+const functions = [
+  test_isReversed(reverse_recursion),
+  test_isReversed(reverse_iteration),
+];
 
 tests.forEach((v) => {
   functions.forEach((f) => {

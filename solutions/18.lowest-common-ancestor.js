@@ -48,7 +48,7 @@ const pathTo = (nodeA, nodeB) => {
   if (!nodeA || !nodeB) return path;
 
   path = [nodeA];
-  let stack = [path];
+  const stack = [path];
   while (stack.length > 0) {
     path = stack.pop();
     parent = path.length > 0 ? path[path.length - 1] : null;
@@ -83,16 +83,6 @@ const findLowestCommonAncestor = (tree, nodeA, nodeB) => {
 
   return common;
 };
-
-// const tree = Node.from([5, 2, 7, 1, 3, 6, 8]);
-// const path = pathTo(tree, tree.left.right);
-// console.log(path);
-
-// const tree = Node.from([1, 2, 3, 4, 5, 6, 7]);
-// const nodeA = tree.right.left;
-// const nodeB = tree.right.right;
-// const common = findLowestCommonAncestor(tree, nodeA, nodeB);
-// console.log(common);
 
 const tests = [
   [

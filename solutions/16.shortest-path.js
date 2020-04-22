@@ -25,6 +25,7 @@ class DirectedGraph {
     if (a === b) return [];
     // Remember parent for each node we visit
     const parents = new Map();
+    // Start DFS from node a
     const queue = [a];
     // While we do not find a destination node (b)
     while (queue.length > 0) {

@@ -6,7 +6,7 @@
 const findBiggestSquareSubmatrix_TopDown = (data) => {
   let max = 0;
   const cache = Array(data.length)
-    .fill(0)
+    .fill()
     .map((_) => Array(data[0].length).fill(0));
 
   // We explore down and to the right until we go out of bound or find a 0

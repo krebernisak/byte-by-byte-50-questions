@@ -27,6 +27,7 @@ const change_TopBottom = (target, coins) => {
   const cache = Array(target + 1).fill(-1);
 
   const _self = (_target) => {
+    if (_target === 0) return 0;
     if (cache[_target] >= 0) return cache[_target];
 
     let min = Number.MAX_SAFE_INTEGER;

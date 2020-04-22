@@ -6,26 +6,20 @@
 
 const getProduct = (data) => data.reduce((acc, val) => acc * val, 1);
 
-const matrixproduct = (matrix) => {
+const matrixProduct = (matrix) => {
   const product = matrix.map((arr) => new Array(arr.length).fill([1, 1]));
   const min = (i, j) => product[i][j][0];
   const max = (i, j) => product[i][j][1];
   const setProduct = (i, j, candidates) =>
     (product[i][j] = [Math.min(...candidates), Math.max(...candidates)]);
 
-  product[0][0] = [matrix[0][0], matrix[0][0]];
+  setProduct(0, 0, [matrix[0][0]]);
   for (let i = 1; i < product.length; i++) {
-    const candidates = [
-      matrix[i][0] * min(i - 1, 0),
-      matrix[i][0] * max(i - 1, 0),
-    ]; // min === max
+    const candidates = [matrix[i][0] * min(i - 1, 0)]; // min === max
     setProduct(i, 0, candidates);
   }
   for (let j = 1; j < product[0].length; j++) {
-    const candidates = [
-      matrix[0][j] * min(0, j - 1),
-      matrix[0][j] * max(0, j - 1),
-    ]; // min === max
+    const candidates = [matrix[0][j] * min(0, j - 1)]; // min === max
     setProduct(0, j, candidates);
   }
 
@@ -43,11 +37,11 @@ const matrixproduct = (matrix) => {
     }
   }
 
-  return product[product.length - 1][product[0].length - 1][1];
+  return max(product.length - 1, product[0].length - 1);
 };
 
-const test_matrixproduct = (matrix, expectedPath, expectedProduct) => {
-  const max = matrixproduct(matrix);
+const test_matrixProduct = (matrix, expectedPath, expectedProduct) => {
+  const max = matrixProduct(matrix);
   // TODO: test path
   return max === expectedProduct ? true : max;
 };
@@ -72,7 +66,7 @@ const tests = [
     1080,
   ],
 ];
-const functions = [test_matrixproduct];
+const functions = [test_matrixProduct];
 
 tests.forEach((v, i) => {
   functions.forEach((f) => {

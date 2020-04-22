@@ -3,22 +3,30 @@
 // Answer: https://www.byte-by-byte.com/twomissingnumbers/
 // Tags: [Bitwise]
 
+// TODO: solve with XOR
+// both numbers are unique eg. 3 & 5, can not be 4 & 4
+// We can get sum of missing numbers => sum of sequence - sum of data
+// We know (as numbers are not equal) one number is < sum_missing/2, other > sum_missing/2
+// Partition array around sum_missing/2 and solve 2x for one missing number (xor)
+
 /**
  * Given an array containing all the numbers from 1 to n except two,
  * find the two missing numbers.
  * @param {number[]} data
  */
 const missing = (data) => {
+  const sumSequence = (n) => (n * (n + 1)) / 2;
   const n = data.length + 2;
   const sumData = data.reduce((acc, val) => acc + val);
-  const sumAll = (n * (n + 1)) / 2;
+  const sumAll = sumSequence(n);
   const diff = sumAll - sumData;
   const splitter = Math.floor(diff / 2);
-  const sumAllLeft = (splitter * (splitter + 1)) / 2;
+  const sumAllLeft = sumSequence(splitter);
   const s1 = data
     .filter((val) => val <= splitter)
     .reduce((acc, val) => acc - val, sumAllLeft);
-  return [s1, diff - s1];
+  const s2 = diff - s1;
+  return [s1, s2];
 };
 
 // test helper

@@ -15,7 +15,6 @@ const reverseOrder = (a, b) => naturalOrder(b, a);
 
 const selectionSort = (stack, compare = naturalOrder) => {
   const _self = (s1, s2, sortedLength = 0) => {
-    // console.log(s1, s2, sortedLength);
     let inOrder = true;
     let currMax = null;
     while (s1.length > sortedLength) {
@@ -39,13 +38,14 @@ const selectionSort = (stack, compare = naturalOrder) => {
 
 const insertionSort = (stack, compare = naturalOrder) => {
   const n = stack.length;
+  const peek = (s) => s[s.length - 1];
+
   const _self = (s1, s2) => {
-    // console.log(s1, s2);
     if (s2.length === n) return s2;
     const next = s1.pop();
     while (true) {
       if (s2.length === 0) break;
-      if (compare(next, s2[s2.length - 1]) <= 0) break;
+      if (compare(next, peek(s2)) <= 0) break;
       s1.push(s2.pop());
     }
     s2.push(next);
@@ -59,6 +59,14 @@ const test_sort = (fn) => (input, comparator, expected) => {
   if (output.length !== expected.length) return output;
   const isExpected = (acc, v, i) => acc && v === expected[i];
   return output.reduce(isExpected, true) || expected;
+};
+
+// Adding flatMap to Array prototype (as it's not available in my env)
+const concat = (x, y) => x.concat(y);
+const flatMap = (f, xs) => xs.map(f).reduce(concat, []);
+
+Array.prototype.flatMap = function (f) {
+  return flatMap(f, this);
 };
 
 const test_orders = [naturalOrder, reverseOrder];

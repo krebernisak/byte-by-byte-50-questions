@@ -11,16 +11,17 @@ const buildOrder_recursion = (processes) => {
 
   const visited = new Array(processes.length).fill(false);
   const stack = [];
+  const _inCurrentStack = (p) => stack.includes(p);
 
-  const _visit = (curr) => {
-    if (visited[curr]) return;
+  const _visit = (p) => {
+    if (visited[p]) return;
 
-    stack.push(curr);
-    visited[curr] = true;
+    stack.push(p);
+    visited[p] = true;
 
     // check for cycles in current sub-graph
-    let dependencies = processes[curr];
-    if (dependencies.some(stack.includes.bind(stack)))
+    const dependencies = processes[p];
+    if (dependencies.some(_inCurrentStack))
       throw Error(`Cycle: stack=[${stack}] dependencies=[${dependencies}]`);
 
     // process dependencies
@@ -39,18 +40,20 @@ const buildOrder_iteration = (processes) => {
   const visited = new Array(processes.length).fill(false);
 
   for (let i = 0; i < processes.length && !visited[i]; i++) {
+    // start DFS for process i
     const stack = [i];
+    const _inCurrentStack = (p) => stack.includes(p);
     while (stack.length > 0) {
-      let curr = stack[stack.length - 1];
-      visited[curr] = true;
+      const p = stack[stack.length - 1];
+      visited[p] = true;
 
       // check for cycles in current sub-graph
-      let dependencies = processes[curr];
-      if (dependencies.some(stack.includes.bind(stack)))
+      const dependencies = processes[p];
+      if (dependencies.some(_inCurrentStack))
         throw Error(`Cycle: stack=[${stack}] dependencies=[${dependencies}]`);
 
       // process non-visited dependencies
-      let nonVisitedDependencies = dependencies.filter((d) => !visited[d]);
+      const nonVisitedDependencies = dependencies.filter((d) => !visited[d]);
       if (nonVisitedDependencies.length === 0) order.push(stack.pop());
 
       stack.push(...nonVisitedDependencies);
