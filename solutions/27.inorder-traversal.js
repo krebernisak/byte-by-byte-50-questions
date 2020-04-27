@@ -1,8 +1,9 @@
-// 27. Inorder Traversal
-// Question: Given a binary search tree, print out the elements of the tree in order without using recursion.
-// Answer: https://www.byte-by-byte.com/inordertraversal/
-// Tags: [Tree][DFS]
-
+/**
+ * 27. Inorder Traversal
+ * Question: Given a binary search tree, print out the elements of the tree in order without using recursion.
+ * Answer: https://www.byte-by-byte.com/inordertraversal/
+ * Tags: [Tree][DFS]
+ */
 class Node {
   constructor(val, left = null, right = null) {
     this.val = val;

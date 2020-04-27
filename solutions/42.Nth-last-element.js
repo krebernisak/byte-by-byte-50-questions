@@ -1,7 +1,10 @@
-// 42. Nth to the Last Element
-// Question: Given a linked list, and an input n, write a function that returns the nth-to-last element of the linked list.
-// Answer: https://www.byte-by-byte.com/nthtolastelement/
-// Tags: [Linked List]
+/**
+ * 42. Nth to the Last Element
+ * Question: Given a linked list, and an input n, write a function that returns
+ *   the nth-to-last element of the linked list.
+ * Answer: https://www.byte-by-byte.com/nthtolastelement/
+ * Tags: [Linked List]
+ */
 
 class Node {
   constructor(val, next = null) {
@@ -38,7 +41,8 @@ const nthToLast = (list, n) => {
 };
 
 // test helper
-const test_nthToLast = (data, n) => nthToLast(Node.from(data), n);
+const test_nthToLast = (data, n, expected) =>
+  nthToLast(Node.from(data), n) === expected;
 
 const tests = [
   [[], 0, null],
@@ -58,9 +62,9 @@ const functions = [test_nthToLast];
 
 tests.forEach((v) => {
   functions.forEach((f) => {
-    const res = f(v[0], v[1]);
+    const res = f(...v);
     console.assert(
-      res === v[2],
+      res === true,
       `Function ${f.name} failed for [${v}] case [Expected: ${v[2]}, Got: ${res}]`
     );
   });

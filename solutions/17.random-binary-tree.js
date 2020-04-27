@@ -1,7 +1,9 @@
-// 17. Random Binary Tree
-// Question: Implement a binary tree with a method getRandomNode() that returns a random node.
-// Answer: https://www.byte-by-byte.com/randomBinarySearchTree/
-// Tags: [Recursion][Graph][DFS]
+/**
+ * 17. Random Binary Tree
+ * Question: Implement a binary tree with a method getRandomNode() that returns a random node.
+ * Answer: https://www.byte-by-byte.com/randomBinarySearchTree/
+ * Tags: [Recursion][Graph][DFS]
+ */
 
 /**
  * Get a random integer between `min` and `max`.

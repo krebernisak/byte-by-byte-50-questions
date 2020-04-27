@@ -1,7 +1,9 @@
-// 41. Split a Linked List
-// Question: Given a linked list, write a function to split the list into two equal halves.
-// Answer: https://www.byte-by-byte.com/splitlinkedlist/
-// Tags: [Linked List]
+/**
+ * 41. Split a Linked List
+ * Question: Given a linked list, write a function to split the list into two equal halves.
+ * Answer: https://www.byte-by-byte.com/splitlinkedlist/
+ * Tags: [Linked List]
+ */
 
 class Node {
   constructor(val, next = null) {
@@ -57,7 +59,7 @@ const functions = [test_divide];
 
 tests.forEach((v) => {
   functions.forEach((f) => {
-    const res = f(v[0], v[1]);
+    const res = f(...v);
     console.assert(
       res === true,
       `Function ${f.name} failed for [${v}] case [Expected: ${v[1]}, Got: ${res}]`

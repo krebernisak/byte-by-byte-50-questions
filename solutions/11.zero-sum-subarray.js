@@ -1,10 +1,18 @@
-// 11. Zero Sum Subarray
-// Question: Given an array, write a function to find any subarray that sums to zero,
-//   if one exists.
-// Answer: https://www.byte-by-byte.com/zerosum/
-// Tags: [Array]
-// Keywords: Slope, Sum Diff, Graph of price
+/**
+ * 11. Zero Sum Subarray
+ * Question: Given an array, write a function to find any subarray that sums to zero,
+ *   if one exists.
+ * Answer: https://www.byte-by-byte.com/zerosum/
+ * Tags: [Array]
+ * Keywords: Slope, Sum Diff, Graph of price
+ */
 
+/**
+ * Time complexity: O(n)
+ * Space complexity: O(n)
+ *
+ * @param {number[]} data
+ */
 const zeroSum = (data) => {
   // Track movements in sum, find same elevation
   const runningSum = data.map((v, i) => (i === 0 ? v : v + data[i - 1]));
@@ -20,5 +28,4 @@ const zeroSum = (data) => {
 };
 
 const res = zeroSum([1, 2, -5, 1, 2, -1]);
-console.log(res);
 assert(res.toString() === [2, -5, 1, 2].toString());

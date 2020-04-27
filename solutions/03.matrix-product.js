@@ -1,8 +1,10 @@
-// 3. Matrix product
-// Question: Given a matrix, find the path from top left to bottom right with the
-//   greatest product by moving only down and right.
-// Answer: https://www.byte-by-byte.com/matrixproduct/
-// Tags: [Array]
+/**
+ * 3. Matrix product
+ * Question: Given a matrix, find the path from top left to bottom right with the
+ *   greatest product by moving only down and right.
+ * Answer: https://www.byte-by-byte.com/matrixproduct/
+ * Tags: [Array]
+ */
 
 const getProduct = (data) => data.reduce((acc, val) => acc * val, 1);
 
@@ -70,7 +72,7 @@ const functions = [test_matrixProduct];
 
 tests.forEach((v, i) => {
   functions.forEach((f) => {
-    const res = f(v[0], v[1], v[2]);
+    const res = f(...v);
     console.assert(
       res === true,
       `Function ${f.name} failed for [${v}] case [Expected: ${v[1]}, Got: ${res}]`

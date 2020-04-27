@@ -1,9 +1,11 @@
-// 7. Square Submatrix
-// Question: Given a 2D array of 1s and 0s, find the largest square subarray of all 1s.
-// Answer: https://www.byte-by-byte.com/squaresubmatrix/
-// Tags: [Recursion][DP]
+/**
+ * 7. Square Submatrix
+ * Question: Given a 2D array of 1s and 0s, find the largest square subarray of all 1s.
+ * Answer: https://www.byte-by-byte.com/squaresubmatrix/
+ * Tags: [Recursion][DP]
+ */
 
-const findBiggestSquareSubmatrix_TopDown = (data) => {
+const findBiggestSquareSubmatrix_topDown = (data) => {
   let max = 0;
   const cache = Array(data.length)
     .fill()
@@ -34,7 +36,7 @@ const findBiggestSquareSubmatrix_TopDown = (data) => {
   return max;
 };
 
-const findBiggestSquareSubmatrix_BottomUp = (data) => {
+const findBiggestSquareSubmatrix_bottomUp = (data) => {
   let max = 0;
   const cache = Array(data.length)
     .fill(0)
@@ -64,7 +66,7 @@ const findBiggestSquareSubmatrix_BottomUp = (data) => {
   return max;
 };
 
-let matrix = [
+const matrix = [
   [0, 0, 0, 0, 0],
   [1, 1, 1, 1, 0],
   [1, 1, 1, 1, 0],
@@ -81,5 +83,5 @@ const cache = [
   [0, 0, 0, 0, 0],
 ];
 
-assert(findBiggestSquareSubmatrix_TopDown(matrix) === 3);
-assert(findBiggestSquareSubmatrix_BottomUp(matrix) === 3);
+assert(findBiggestSquareSubmatrix_topDown(matrix) === 3);
+assert(findBiggestSquareSubmatrix_bottomUp(matrix) === 3);

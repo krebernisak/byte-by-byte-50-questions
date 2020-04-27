@@ -1,12 +1,18 @@
-// 19. Sum
-// Question: Given two integers, write a function to sum the numbers without using any arithmetic operators.
-// Answer: https://www.byte-by-byte.com/sum/
-// Tags: [Bitwise]
+/**
+ * 19. Sum
+ * Question: Given two integers, write a function to sum the numbers without using any arithmetic operators.
+ * Answer: https://www.byte-by-byte.com/sum/
+ * Tags: [Bitwise]
+ */
 
-// XOR (a ^ b) is addition without carry.
-// (a & b) is the carry-out from each bit.
-// (a & b) << 1 is the carry-in to each bit.
-
+/**
+ * (a ^ b) is addition without carry.
+ * (a & b) is the carry-out from each bit.
+ * (a & b) << 1 is the carry-in to each bit.
+ *
+ * @param {number} a
+ * @param {number} b
+ */
 const sum_recursion = (a, b) => {
   if (b === 0) return a;
   const partial = a ^ b;

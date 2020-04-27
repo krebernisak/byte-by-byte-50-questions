@@ -1,8 +1,10 @@
-// 21. Tree to Doubly Linked List
-// Question: Given a tree, write a function to convert it into a circular
-//   doubly linked list from left to right by only modifying the existing pointers.
-// Answer: https://www.byte-by-byte.com/treetolist/
-// Tags:  [Tree][Linked List]
+/**
+ * 21. Tree to Doubly Linked List
+ * Question: Given a tree, write a function to convert it into a circular
+ *   doubly linked list from left to right by only modifying the existing pointers.
+ * Answer: https://www.byte-by-byte.com/treetolist/
+ * Tags:  [Tree][Linked List]
+ */
 
 class Node {
   constructor(val, left = null, right = null) {
@@ -62,7 +64,7 @@ const toList = (tree) => {
   let prev = null;
   for (const n of inorder(tree)) {
     if (!head) head = n;
-    if (prev) prev.right = n;
+    if (prev) [prev.right, n.left] = [n, prev];
     prev = n;
   }
 

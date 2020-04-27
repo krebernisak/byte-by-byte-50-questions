@@ -1,9 +1,11 @@
-// 15. Build order
-// Question: Given a list of packages that need to be built and the dependencies for
-//   each package, determine a valid order in which to build the packages.
-// Answer:  https://www.byte-by-byte.com/buildorder/
-// Tags: [DFS][Topological Sort]
-// Recursive and iterative DFS with + (cycle detection) and * (processed) marks
+/**
+ * 15. Build order
+ * Question: Given a list of packages that need to be built and the dependencies for
+ *   each package, determine a valid order in which to build the packages.
+ * Answer:  https://www.byte-by-byte.com/buildorder/
+ * Tags: [DFS][Topological Sort]
+ * Recursive and iterative DFS with + (cycle detection) and * (processed) marks
+ */
 
 const buildOrder_recursion = (processes) => {
   const order = [];
@@ -55,8 +57,7 @@ const buildOrder_iteration = (processes) => {
       // process non-visited dependencies
       const nonVisitedDependencies = dependencies.filter((d) => !visited[d]);
       if (nonVisitedDependencies.length === 0) order.push(stack.pop());
-
-      stack.push(...nonVisitedDependencies);
+      else stack.push(...nonVisitedDependencies);
     }
   }
 

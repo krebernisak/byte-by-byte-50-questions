@@ -1,9 +1,13 @@
-// 12. Permutations
-// Question: Write a function that returns all permutations of a given list.
-// Answer: https://www.byte-by-byte.com/permutations/
-// Tags: [Recursion][Ordering][Permutations]
+/**
+ * 12. Permutations
+ * Question: Write a function that returns all permutations of a given list.
+ * Answer: https://www.byte-by-byte.com/permutations/
+ * Tags: [Recursion][Ordering][Permutations]
+ */
 
 /**
+ * Time complexity: O(n! / (n - k)!)
+ *
  * @param {string} data
  * @return {string[]}
  */
@@ -15,6 +19,9 @@ const permutations_string = (str) => {
   for (let i = 0; i < str.length; i++) {
     const char = str[i];
 
+    // skip repeating characters
+    if (str.indexOf(char) !== i) continue;
+
     const remainingChars = str.slice(0, i) + str.slice(i + 1, str.length);
 
     for (let permutation of permutations_string(remainingChars))
@@ -24,13 +31,15 @@ const permutations_string = (str) => {
 };
 
 /**
+ * Time complexity: O(n! / (n - k)!)
+ *
  * @param {number[]} data
  * @return {number[][]}
  */
-const permutations = (data) => {
+const permutations = (data, k = data.length) => {
   const res = [];
   const _self = (path) => {
-    if (path.length === data.length) {
+    if (path.length === k) {
       res.push([...path]);
       return;
     }
@@ -48,6 +57,9 @@ const permutations = (data) => {
 };
 
 assert(permutations([1, 2, 3]).length === 6); // 3!
+assert(permutations([1, 2, 3], 3).length === 6); // 3!
+assert(permutations([1, 2, 3], 2).length === 6); // 3!
+assert(permutations([1, 2, 3], 1).length === 3); // 3! / 2!
 
 // n! permutations =>    [ ]
 //       [1]             [2]             [3]

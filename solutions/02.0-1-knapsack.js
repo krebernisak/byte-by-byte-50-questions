@@ -1,9 +1,13 @@
-// 2. 0-1 Knapsack
-// Question: Given a list of items with values and weights, as well as a max weight,
-//   find the maximum value you can generate from items where the sum of the
-//   weights is less than the max.
-// Answer: https://www.byte-by-byte.com/01knapsack/
-// Tags: [Recursion][Ordering][Combinations][DP]
+/**
+ * 2. 0-1 Knapsack
+ * Question: Given a list of items with values and weights, as well as a max weight,
+ *   find the maximum value you can generate from items where the sum of the
+ *   weights is less than the max.
+ * Answer: https://www.byte-by-byte.com/01knapsack/
+ * Tags: [Recursion][Ordering][Combinations][DP]
+ * Links:
+ *   - https://www.educative.io/courses/grokking-dynamic-programming-patterns-for-coding-interviews/RM1BDv71V60
+ */
 
 // First find all combinations and then filter on those
 const knapsack_Combinations = (items, maxWeight) => {
@@ -27,7 +31,6 @@ const knapsack_Combinations = (items, maxWeight) => {
   // Find all combinations
   _combinations(0, []);
 
-  console.log(allCombinations);
   const _weightSum = (items) => items.reduce((acc, item) => acc + item[0], 0);
   const _valueSum = (items) => items.reduce((acc, item) => acc + item[1], 0);
   const _underMaxWeight = (items) => _weightSum(items) <= maxWeight;
@@ -45,10 +48,10 @@ const knapsack_TopDown = (items, maxWeight) => {
   if (!items) return 0;
   if (maxWeight === 0) return 0;
 
-  // we need to sort the data ASC for top down solution
+  // we need to sort the data by value ASC for top down solution
   // must give custom comparator because JS default is a lexicographical sort
   // (e.g. convert objects to strings, and sort them in dictionary order)
-  items.sort((a, b) => a - b);
+  items.sort((a, b) => a[1] - b[1]);
   const cache = {};
 
   const _knapsack = (weight, i, value) => {

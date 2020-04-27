@@ -1,10 +1,12 @@
-// 29. Stack from Queues
-// Question: Implement a LIFO stack with basic functionality (push and pop) using FIFO queues to store the data.
-// Answer: https://www.byte-by-byte.com/stackfromqueues/
-// Tags: [Stack][Queue]
-
-// https://jsperf.com/queue-push-unshift-vs-shift-pop
-// https://stackoverflow.com/a/1590277/1252289
+/**
+ * 29. Stack from Queues
+ * Question: Implement a LIFO stack with basic functionality (push and pop) using FIFO queues to store the data.
+ * Answer: https://www.byte-by-byte.com/stackfromqueues/
+ * Tags: [Stack][Queue]
+ * Links:
+ *   - https://jsperf.com/queue-push-unshift-vs-shift-pop
+ *   - https://stackoverflow.com/a/1590277/1252289
+ */
 
 // TODO: Tests
 class Stack {
@@ -57,9 +59,7 @@ class Stack {
   }
 }
 
-/**
- * Simple fast O(1) enqueue/dequeue queue using hash map.
- */
+// Simple fast O(1) enqueue/dequeue queue using hash map.
 class QueueFromMap {
   constructor() {
     this.storage = {};

@@ -1,11 +1,20 @@
-// 9. Matrix Search
-// Question: Given an n x m array where all rows and columns are in sorted order,
-//   write a function to determine whether the array contains an element x.
-// Answer: https://www.byte-by-byte.com/matrixsearch/
-// Tags: [Binary Search]
+/**
+ * 9. Matrix Search
+ * Question: Given an n x m array where all rows and columns are in sorted order,
+ *   write a function to determine whether the array contains an element x.
+ * Answer: https://www.byte-by-byte.com/matrixsearch/
+ * Tags: [Binary Search]
+ */
 
-// Time complexity: O(log n)
-const binarySearch = (getData, low, high, val) => {
+/**
+ * Time complexity: O(log n)
+ *
+ * @param {function} getData
+ * @param {number} low
+ * @param {number} high
+ * @param {number} val
+ */
+const _binarySearch = (getData, low, high, val) => {
   while (low <= high) {
     const mid = low + Math.floor((high - low) / 2);
     const midVal = getData(mid);
@@ -32,7 +41,7 @@ const binarySearch = (getData, low, high, val) => {
  * @param {number[][]} data - 2D matrix
  * @param {number} val - value to search for
  */
-const matrixSearch = (data, val) => {
+const matrixSearch_binarySearch = (data, val) => {
   const n = data.length;
   const m = data[0].length;
   // Function that maps from 1D index to 2D indexes
@@ -42,7 +51,7 @@ const matrixSearch = (data, val) => {
     assert(index === i * m + j); // Example for going back 2D => 1D
     return data[i][j];
   };
-  return binarySearch(getData, 0, n * m - 1, val) >= 0;
+  return _binarySearch(getData, 0, n * m - 1, val) >= 0;
 };
 
 /**
@@ -53,12 +62,12 @@ const matrixSearch = (data, val) => {
  * @param {number[][]} data - 2D matrix
  * @param {number} val - value to search for
  */
-const matrixSearch_ScanRowCol = (data, val) => {
+const matrixSearch_scanRowCol = (data, val) => {
   if (data.length == 0 || data[0].length == 0) return false;
   let row = 0;
-  let col = data.length - 1;
+  let col = data[0].length - 1;
 
-  while (row < data[0].length && col >= 0) {
+  while (row < data.length && col >= 0) {
     if (data[row][col] === val) return true;
     if (data[row][col] < val) row++;
     else col--;
@@ -90,13 +99,13 @@ const tests = [
 // test helper
 const test_found = (fn) => {
   return (data, val, expected) => {
-    const res = matrixSearch(data, val);
+    const res = fn(data, val);
     return expected === res;
   };
 };
 const functions = [
-  test_found(matrixSearch),
-  test_found(matrixSearch_ScanRowCol),
+  test_found(matrixSearch_binarySearch),
+  test_found(matrixSearch_scanRowCol),
 ];
 
 tests.forEach((v, i) => {

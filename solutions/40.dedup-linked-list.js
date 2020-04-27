@@ -1,7 +1,9 @@
-// 40. Dedup Linked List
-// Question: Given an unsorted linked list, write a function to remove all the duplicates.
-// Answer: https://www.byte-by-byte.com/deduplinkedlist/
-// Tags: [Linked List]
+/**
+ * 40. Dedup Linked List
+ * Question: Given an unsorted linked list, write a function to remove all the duplicates.
+ * Answer: https://www.byte-by-byte.com/deduplinkedlist/
+ * Tags: [Linked List]
+ */
 
 class Node {
   constructor(val, next = null) {
@@ -79,7 +81,7 @@ const functions = [test_dedup];
 
 tests.forEach((v) => {
   functions.forEach((f) => {
-    const res = f(v[0], v[1]);
+    const res = f(...v);
     console.assert(
       res === true,
       `Function ${f.name} failed for [${v}] case [Expected: ${v[1]}, Got: ${res}]`

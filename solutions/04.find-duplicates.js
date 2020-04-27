@@ -1,28 +1,38 @@
-// 4. Find Duplicates
-// Question: Given an array of integers where each value 1 <= x <= len(array), write
-//   a function that finds all the duplicates in the array.
-// Answer: https://www.byte-by-byte.com/findduplicates/
-// Tags: [Array]
+/**
+ * 4. Find Duplicates
+ * Question: Given an array of integers where each value 1 <= x <= len(array), write
+ *   a function that finds all the duplicates in the array.
+ * Answer: https://www.byte-by-byte.com/findduplicates/
+ * Tags: [Array]
+ */
 
 const naturalOrder = (a, b) => a - b;
 const onlyDuplicates = (val, i, arr) => i !== 0 && val === arr[i - 1];
 const onlyDistinct = (val, i, arr) => i === 0 || val !== arr[i - 1];
 
+/**
+ * Time complexity: O(n)
+ * Space complexity: O(n)
+ *
+ * @param {number[]} data
+ */
 const findDuplicates_Set = (data) => {
   if (!data || data.length === 1) return [];
   const numberSet = new Set();
+  const _onlyInNumberSet = (val) =>
+    numberSet.has(val) || (numberSet.add(val) && false);
   return data
-    .filter((val) => {
-      if (numberSet.has(val)) return true;
-      else {
-        numberSet.add(val);
-        return false;
-      }
-    }) // find duplicatess
+    .filter(_onlyInNumberSet) // find duplicatess
     .filter(onlyDistinct) // remove duplicates from duplicates
     .sort(naturalOrder);
 };
 
+/**
+ * Time complexity: O(n * log n)
+ * Space complexity: O(1)
+ *
+ * @param {number[]} data
+ */
 const findDuplicates_Sort = (data) => {
   if (!data || data.length === 1) return [];
   return data
@@ -31,6 +41,12 @@ const findDuplicates_Sort = (data) => {
     .filter(onlyDistinct); // remove duplicates from duplicates
 };
 
+/**
+ * Time complexity: O(n)
+ * Space complexity: O(1)
+ *
+ * @param {number[]} data
+ */
 const findDuplicates_Encode = (data) => {
   let duplicates = [];
   if (!data || data.length === 1) return duplicates;

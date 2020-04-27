@@ -1,9 +1,11 @@
-// 34. Swap Variables
-// Question: Given two integers, write a function that swaps them without using any temporary variables.
-// Answer: https://www.byte-by-byte.com/swapvariables/
-// Tags: [Bitwise]
-
-// https://medium.com/better-programming/how-swap-two-values-without-temporary-variables-using-javascript-8bb28f96b5f6
+/**
+ * 34. Swap Variables
+ * Question: Given two integers, write a function that swaps them without using any temporary variables.
+ * Answer: https://www.byte-by-byte.com/swapvariables/
+ * Tags: [Bitwise]
+ * Links:
+ *   - https://medium.com/better-programming/how-swap-two-values-without-temporary-variables-using-javascript-8bb28f96b5f6
+ */
 
 // Solutions for Numbers
 

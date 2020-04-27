@@ -1,8 +1,10 @@
-// 46. String Deletion
-// Question: Given a string and a dictionary HashSet,
-//   write a function to determine the minimum number of characters to delete to make a word.
-// Answer: https://www.byte-by-byte.com/stringdeletion/
-// Tags: [Graph][BFS]
+/**
+ * 46. String Deletion
+ * Question: Given a string and a dictionary HashSet,
+ *   write a function to determine the minimum number of characters to delete to make a word.
+ * Answer: https://www.byte-by-byte.com/stringdeletion/
+ * Tags: [Graph][BFS]
+ */
 
 const stringDeletion = (dictionary, query) => {
   if (!query) return 0;

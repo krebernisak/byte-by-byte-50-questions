@@ -1,7 +1,15 @@
-// 36. Rotate Bits
-// Question: Given a number, write a function to rotate the bits (ie circular shift).
-// Answer: https://www.byte-by-byte.com/rotatebits/
-// [Bitwise]
+/**
+ * 36. Rotate Bits
+ * Question: Given a number, write a function to rotate the bits (ie circular shift).
+ * Answer: https://www.byte-by-byte.com/rotatebits
+ * Tags: [Bitwise]
+ * Links:
+ *   - Example how to force Int32 - https://stackoverflow.com/a/19843976/1252289
+ */
+
+// Example how to force Int32
+console.log(0xf0000fff | 0);
+console.log(0xf0000fff >> 0);
 
 const rotateClockwise = (bits, k) => (bits >>> k) | (bits << (32 - k));
 const rotateCounterClockwise = (bits, k) => (bits << k) | (bits >>> (32 - k));
@@ -14,10 +22,6 @@ const rotateClockwise_Stepper = (bits, k) => {
   }
   return bits;
 };
-
-// Example how to force Int32 - https://stackoverflow.com/a/19843976/1252289
-console.log(0xf0000fff | 0);
-console.log(0xf0000fff >> 0);
 
 const tests = [
   [0, 0, 0],

@@ -1,7 +1,9 @@
-// 26. Smallest Change
-// Question: Given an input amount of change x, write a function to determine the minimum number of coins required to make that amount of change.
-// Answer: https://www.byte-by-byte.com/smallestchange/
-// Tags: [Recursion][DP]
+/**
+ * 26. Smallest Change
+ * Question: Given an input amount of change x, write a function to determine the minimum number of coins required to make that amount of change.
+ * Answer: https://www.byte-by-byte.com/smallestchange/
+ * Tags: [Recursion][DP]
+ */
 
 // accept only positive coins
 const onlyPositive = (coins) => (coins || []).filter((c) => c > 0);

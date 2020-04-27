@@ -1,7 +1,9 @@
-// 45. Autocomplete
-// Question: Write an autocomplete class that returns all dictionary words with a given prefix.
-// Answer: https://www.byte-by-byte.com/autocomplete/
-// Tags: [String][Trie]
+/**
+ * 45. Autocomplete
+ * Question: Write an autocomplete class that returns all dictionary words with a given prefix.
+ * Answer: https://www.byte-by-byte.com/autocomplete/
+ * Tags: [String][Tree][Trie]
+ */
 
 class Node {
   constructor(val, isWord) {

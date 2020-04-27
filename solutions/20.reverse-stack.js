@@ -1,7 +1,9 @@
-// 20. Reverse Stack
-// Question: Given a stack, reverse the items without creating any additional data structures.
-// Answer: https://www.byte-by-byte.com/reversestack/
-// Tags: [Stack]
+/**
+ * 20. Reverse Stack
+ * Question: Given a stack, reverse the items without creating any additional data structures.
+ * Answer: https://www.byte-by-byte.com/reversestack/
+ * Tags: [Stack]
+ */
 
 /**
  * The reverse method transposes the elements of the calling array object in place,
@@ -68,7 +70,7 @@ const functions = [
 
 tests.forEach((v) => {
   functions.forEach((f) => {
-    const res = f(v[0], v[1]);
+    const res = f(...v);
     console.assert(
       res === true,
       `Function ${f.name} failed for [${v}] case [Expected: ${v[1]}, Got: ${res}]`

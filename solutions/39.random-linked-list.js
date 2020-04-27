@@ -1,8 +1,10 @@
-// 39. Random Linked List
-// Question: Given a linked list where each node has two pointers,
-//   one to the next node and one to a random node in the list, clone the linked list.
-// Answer: https://www.byte-by-byte.com/randomlinkedlist/
-// Tags: [Linked List]
+/**
+ * 39. Random Linked List
+ * Question: Given a linked list where each node has two pointers,
+ *   one to the next node and one to a random node in the list, clone the linked list.
+ * Answer: https://www.byte-by-byte.com/randomlinkedlist/
+ * Tags: [Linked List]
+ */
 
 class Node {
   constructor(val, next = null, random = null) {
@@ -163,7 +165,7 @@ const functions = [test_clone(clone_Map)];
 
 tests.forEach((v) => {
   functions.forEach((f) => {
-    const res = f(v[0], v[1]);
+    const res = f(...v);
     console.assert(
       res === true,
       `Function ${f.name} failed for [${v}] case [Expected: ${v[1]}, Got: ${res}]`

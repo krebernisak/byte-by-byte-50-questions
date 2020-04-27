@@ -1,7 +1,9 @@
-// 23. Print Reversed Linked List
-// Question: Given a linked list, write a function that prints the nodes of the list in reverse order.
-// Answer: https://www.byte-by-byte.com/printreversedlist/
-// Tags: [Linked List][Recursion]
+/**
+ * 23. Print Reversed Linked List
+ * Question: Given a linked list, write a function that prints the nodes of the list in reverse order.
+ * Answer: https://www.byte-by-byte.com/printreversedlist/
+ * Tags: [Linked List][Recursion]
+ */
 
 class Node {
   constructor(val, next = null) {
@@ -21,15 +23,17 @@ class Node {
     });
     return head;
   }
-
-  printReversed = () => {
-    const _self = (n) => {
-      if (!n) return;
-      if (n.next) _self(n.next);
-      console.log(n.val);
-    };
-    return _self(this);
-  };
 }
 
-Node.from([1, 2, 3, 4, 5]).printReversed();
+function* getReversed(node) {
+  if (!node) return;
+  if (node.next) printReversed(node.next);
+  yield node;
+}
+
+const printReversed = (node) => {
+  for (const n of getReversed(node)) console.log(n.val);
+};
+
+const list = Node.from([1, 2, 3, 4, 5]);
+printReversed(list);

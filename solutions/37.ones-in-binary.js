@@ -1,7 +1,9 @@
-// 37. Number of Ones in a Binary Number
-// Question: Given an integer, write a function to compute the number of ones in the binary representation of the number.
-// Answer: https://www.byte-by-byte.com/onesinbinary/
-// [Bitwise]
+/**
+ * 37. Number of Ones in a Binary Number
+ * Question: Given an integer, write a function to compute the number of ones in the binary representation of the number.
+ * Answer: https://www.byte-by-byte.com/onesinbinary/
+ * Tags: [Bitwise]
+ */
 
 const countOnesInBinary_recursion = (num) =>
   // if last bit set add 1 else add 0

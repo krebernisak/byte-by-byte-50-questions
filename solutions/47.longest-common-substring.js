@@ -1,10 +1,12 @@
-// 47. Longest Common Substring
-// Question: Given two strings, write a function that returns the longest common substring.
-// Answer: https://www.byte-by-byte.com/longestsubstring/
-// Tags: [Recursion][DP]
-// Leetcode similar:
-//   https://leetcode.com/problems/maximum-length-of-repeated-subarray/
-//   https://leetcode.com/problems/longest-common-subsequence/
+/**
+ * 47. Longest Common Substring
+ * Question: Given two strings, write a function that returns the longest common substring.
+ * Answer: https://www.byte-by-byte.com/longestsubstring/
+ * Tags: [Recursion][DP]
+ * Leetcode similar:
+ *   - https://leetcode.com/problems/maximum-length-of-repeated-subarray/
+ *   - https://leetcode.com/problems/longest-common-subsequence/
+ */
 
 // Easy to find length, but harder to find longest substring using top down approach
 const longestSubstring_TopDown = (a, b) => {};
@@ -35,6 +37,8 @@ const longestSubstring_BottomUp = (a, b) => {
     }
   }
 
+  // maxLength is our bottom right element of 2d dp table
+  assert(maxLength === cache[a.length][b.length]);
   return out;
 };
 

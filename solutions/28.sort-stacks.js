@@ -1,9 +1,11 @@
-// 28. Sort Stacks
-// Question: Given a stack, sort the elements in the stack using one additional stack.
-// Answer: https://www.byte-by-byte.com/sortstacks/
-// Tags: [Stack][Sort]
+/**
+ * 28. Sort Stacks
+ * Question: Given a stack, sort the elements in the stack using one additional stack.
+ * Answer: https://www.byte-by-byte.com/sortstacks/
+ * Tags: [Stack][Sort]
+ */
 
-// TODO: repeat this!
+// TODO: repeat this!, fix bugs, and document
 // TODO: iteration
 
 const naturalOrder = (a, b) => {

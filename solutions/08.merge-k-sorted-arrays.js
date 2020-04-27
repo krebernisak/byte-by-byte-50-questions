@@ -1,7 +1,9 @@
-// 8. Merge K Arrays
-// Question: Given k sorted arrays, merge them into a single sorted array.
-// Answer: https://www.byte-by-byte.com/mergekarrays/
-// Tags: [Sort][Priority Queue]
+/**
+ * 8. Merge K Arrays
+ * Question: Given k sorted arrays, merge them into a single sorted array.
+ * Answer: https://www.byte-by-byte.com/mergekarrays/
+ * Tags: [Sort][Priority Queue]
+ */
 
 // Dumb PriorityQueue with O(n * log n) enqueue (I am tired to build a min heap now)
 class PriorityQueue {
@@ -39,13 +41,11 @@ const sort = (data) => {
       pq.enqueue(el);
     }
 
-    if (anyElementsLeft) continue;
-
-    while (pq.length > 0) result.push(pq.dequeue());
-    return result;
-
-    // result.push(pq.dequeue());
+    if (!anyElementsLeft) break;
   }
+
+  while (pq.length > 0) result.push(pq.dequeue());
+  return result;
 };
 
 let data = [

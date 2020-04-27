@@ -1,7 +1,9 @@
-// 44. Tree Level Order
-// Question: Given a tree, write a function that prints out the nodes of the tree in level order.
-// Answer: https://www.byte-by-byte.com/treelevelorder/
-// Tags: [Tree][BFS]
+/**
+ * 44. Tree Level Order
+ * Question: Given a tree, write a function that prints out the nodes of the tree in level order.
+ * Answer: https://www.byte-by-byte.com/treelevelorder/
+ * Tags: [Tree][BFS]
+ */
 
 class Node {
   constructor(val, left = null, right = null) {
@@ -89,9 +91,9 @@ const functions = [test(levelOrder)];
 
 tests.forEach((v) => {
   functions.forEach((f) => {
-    const res = f(v[0], v[1]);
+    const res = f(...v);
     console.assert(
-      res,
+      res === true,
       `Function ${f.name} failed for [${v}] case [Expected: ${v[1]}, Got: ${res}]`
     );
   });

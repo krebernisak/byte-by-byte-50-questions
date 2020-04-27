@@ -1,7 +1,9 @@
-// 25. Binary Search Tree Verification
-// Question: Given a binary tree, write a function to test if the tree is a binary search tree.
-// Answer: https://www.byte-by-byte.com/binarysearchtree/
-// Tags: [Tree][BST]
+/**
+ * 25. Binary Search Tree Verification
+ * Question: Given a binary tree, write a function to test if the tree is a binary search tree.
+ * Answer: https://www.byte-by-byte.com/binarysearchtree/
+ * Tags: [Tree][BST]
+ */
 
 class Node {
   constructor(val, left = null, right = null) {

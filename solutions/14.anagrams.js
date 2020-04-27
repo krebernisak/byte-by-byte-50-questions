@@ -1,18 +1,31 @@
-// 14. Anagrams
-// Question: Given two strings, write a function to determine whether they are
-//   anagrams.
-// Answer: https://www.byte-by-byte.com/anagrams/
-// Tags: [Array]
+/**
+ * 14. Anagrams
+ * Question: Given two strings, write a function to determine whether they are anagrams.
+ * Answer: https://www.byte-by-byte.com/anagrams/
+ * Tags: [Array]
+ */
 
-// Slow O(n*log(n)) time & O(n) space
-const isAnagram1 = (s1, s2) => {
+/**
+ * Time complexity: O(n * log n)
+ * Space complexity: O(n)
+ *
+ * @param {string} s1
+ * @param {string} s2
+ */
+const isAnagram_sortCharacters = (s1, s2) => {
   s1 = s1.toLowerCase().split("").sort().join("");
   s2 = s2.toLowerCase().split("").sort().join("");
   return s1 === s2;
 };
 
-// Fast O(n) time & O(n) space
-const isAnagram2 = (s1, s2) => {
+/**
+ * Time complexity: O(n)
+ * Space complexity: O(n)
+ *
+ * @param {string} s1
+ * @param {string} s2
+ */
+const isAnagram_countCharacters = (s1, s2) => {
   const counters = new Array(128).fill(0);
   s1 = s1.toLowerCase();
   for (let i = 0; i < s1.length; i++) counters[s1.charCodeAt(i)]++;
@@ -32,7 +45,7 @@ const tests = [
   ["Fish", "Plenty", false],
   ["The eyes", "They see", true],
 ];
-const functions = [isAnagram1, isAnagram2];
+const functions = [isAnagram_sortCharacters, isAnagram_countCharacters];
 
 tests.forEach((v, i) => {
   functions.forEach((f) => {

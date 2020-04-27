@@ -1,9 +1,12 @@
-// 35. Gray Code
-// Question: Given two integers, write a function to determine
-//   whether or not their binary representations differ by a single bit.
-// Answer: https://www.byte-by-byte.com/graycode/
-// Tags: [Bitwise]
-// History and applications: https://en.wikipedia.org/wiki/Gray_code
+/**
+ * 35. Gray Code
+ * Question: Given two integers, write a function to determine
+ *   whether or not their binary representations differ by a single bit.
+ * Answer: https://www.byte-by-byte.com/graycode/
+ * Tags: [Bitwise]
+ * Links:
+ *   - History and applications: https://en.wikipedia.org/wiki/Gray_code
+ */
 
 const grayCode_Count = (a, b) => countBits(a ^ b) === 1;
 

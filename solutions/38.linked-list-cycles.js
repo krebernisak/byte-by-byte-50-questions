@@ -1,7 +1,9 @@
-// 38. Linked List Cycles
-// Question: Given a linked list, determine whether it contains a cycle.
-// Answer: https://www.byte-by-byte.com/listcycles/
-// Tags: [Linked List]
+/**
+ * 38. Linked List Cycles
+ * Question: Given a linked list, determine whether it contains a cycle.
+ * Answer: https://www.byte-by-byte.com/listcycles/
+ * Tags: [Linked List]
+ */
 
 class Node {
   constructor(val, next = null) {
@@ -64,6 +66,8 @@ const detectCycle_Floyd = (node) => {
   }
   return slow === fast;
 };
+
+// TODO: Floyd getCycleInNode_Floyd
 
 const tests = [
   [[], -1, false],

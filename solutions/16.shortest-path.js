@@ -1,7 +1,9 @@
-// 16. Shortest Path
-// Question: Given a directed graph, find the shortest path between two nodes if one exists.
-// Answer: https://www.byte-by-byte.com/shortestpath/
-// Tags: [Graph][BFS]
+/**
+ * 16. Shortest Path
+ * Question: Given a directed graph, find the shortest path between two nodes if one exists.
+ * Answer: https://www.byte-by-byte.com/shortestpath/
+ * Tags: [Graph][BFS]
+ */
 
 class DirectedGraph {
   constructor() {
@@ -25,7 +27,7 @@ class DirectedGraph {
     if (a === b) return [];
     // Remember parent for each node we visit
     const parents = new Map();
-    // Start DFS from node a
+    // Start BFS from node a
     const queue = [a];
     // While we do not find a destination node (b)
     while (queue.length > 0) {

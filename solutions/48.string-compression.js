@@ -1,10 +1,12 @@
-// 48. String Compression
-// Question: Given a string, write a function to compress it by shortening every
-//   sequence of the same character to that character followed by the number of
-//   repetitions. If the compressed string is longer than the original,
-//   you should return the original string.
-// Answer: https://www.byte-by-byte.com/stringcompression/
-// Tags: [String]
+/**
+ * 48. String Compression
+ * Question: Given a string, write a function to compress it by shortening every
+ *   sequence of the same character to that character followed by the number of
+ *   repetitions. If the compressed string is longer than the original,
+ *   you should return the original string.
+ * Answer: https://www.byte-by-byte.com/stringcompression/
+ * Tags: [String]
+ */
 
 const compress = (s) => {
   if (!s) return s;

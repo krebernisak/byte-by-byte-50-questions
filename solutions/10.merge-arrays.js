@@ -1,10 +1,19 @@
-// 10. Merge Arrays
-// Question: Given 2 sorted arrays, A and B, where A is long enough to hold the
-//   contents of A and B, write a function to copy the contents of B into A without
-//   using any buffer or additional memory.
-// Answer: https://www.byte-by-byte.com/mergearrays/
-// Tags: [Array]
+/**
+ * 10. Merge Arrays
+ * Question: Given 2 sorted arrays, A and B, where A is long enough to hold the
+ *   contents of A and B, write a function to copy the contents of B into A without
+ *   using any buffer or additional memory.
+ * Answer: https://www.byte-by-byte.com/mergearrays/
+ * Tags: [Array]
+ */
 
+/**
+ * Time complexity: O(n)
+ * Space complexity: O(1)
+ *
+ * @param {number[]} a
+ * @param {number[]} b
+ */
 const mergeArrays = (a, b) => {
   if (!b) return a;
   let i = a.length - 1;

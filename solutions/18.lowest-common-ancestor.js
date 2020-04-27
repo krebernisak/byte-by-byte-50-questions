@@ -1,8 +1,11 @@
-// 18. Lowest Common Ancestor
-// Question: Given two nodes in a binary tree, write a function to find the lowest common ancestor.
-// Answer: https://www.byte-by-byte.com/lowestcommonancestor/
-// Tags: [Tree]
-// BFS vs. DFS => https://stackoverflow.com/a/3332994/1252289
+/**
+ * 18. Lowest Common Ancestor
+ * Question: Given two nodes in a binary tree, write a function to find the lowest common ancestor.
+ * Answer: https://www.byte-by-byte.com/lowestcommonancestor/
+ * Tags: [Tree]
+ * Links:
+ *   - BFS vs. DFS => https://stackoverflow.com/a/3332994/1252289
+ */
 
 class Node {
   constructor(val, left = null, right = null) {
@@ -51,10 +54,10 @@ const pathTo = (nodeA, nodeB) => {
   const stack = [path];
   while (stack.length > 0) {
     path = stack.pop();
-    parent = path.length > 0 ? path[path.length - 1] : null;
-    if (!parent) continue;
-    if (parent === nodeB) return path; // path found
-    stack.push([...path, parent.left], [...path, parent.right]);
+    next = path[path.length - 1];
+    if (!next) continue;
+    if (next === nodeB) return path; // path found
+    stack.push([...path, next.left], [...path, next.right]);
   }
 
   return []; // path NOT found

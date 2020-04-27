@@ -1,7 +1,9 @@
-// 30. Palindromes
-// Question: Given a linked list, write a function to determine whether the list is a palindrome.
-// Answer: https://www.byte-by-byte.com/palindromes/
-// Tags: [Stack][Linked List]
+/**
+ * 30. Palindromes
+ * Question: Given a linked list, write a function to determine whether the list is a palindrome.
+ * Answer: https://www.byte-by-byte.com/palindromes/
+ * Tags: [Stack][Linked List]
+ */
 
 class Node {
   constructor(val, next = null) {
@@ -34,6 +36,7 @@ const isPalindrome = (node) => {
 
   // run to the end of list while collecting values in stack
   while (runner && runner.next) {
+    // TODO: we only need to save second half of the list
     stack.push(p.val);
     p = p.next;
     runner = runner.next.next;

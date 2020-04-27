@@ -1,8 +1,10 @@
-// 31. Max Stacks
-// Question: Implement a LIFO stack that has a push(), pop(), and max() function,
-//   where max() returns the maximum value in the stack. All of these functions should run in O(1) time
-// Answer: https://www.byte-by-byte.com/maxstack/
-// Tags: [Stack]
+/**
+ * 31. Max Stacks
+ * Question: Implement a LIFO stack that has a push(), pop(), and max() function,
+ *   where max() returns the maximum value in the stack. All of these functions should run in O(1) time
+ * Answer: https://www.byte-by-byte.com/maxstack/
+ * Tags: [Stack]
+ */
 
 // Stack keeping track of max at index
 class Stack_TrackMax {
