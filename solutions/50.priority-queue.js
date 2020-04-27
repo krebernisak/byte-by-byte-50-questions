@@ -11,7 +11,7 @@ const naturalOrder = (a, b) => {
 const reverseOrder = (a, b) => naturalOrder(b, a);
 
 // heap as array utility
-const parent = (i) => Math.ceil(i / 2 - 1);
+const parent = (i) => Math.floor(i / 2);
 const left = (i) => 2 * i + 1;
 const right = (i) => left(i) + 1;
 const swap = (arr, i, j) => ([arr[i], arr[j]] = [arr[j], arr[i]]);

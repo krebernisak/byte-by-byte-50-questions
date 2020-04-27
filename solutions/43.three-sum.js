@@ -15,11 +15,9 @@ const _binarySearch = (data, low, high, target) => {
 };
 
 const _oneSum = (data, target) => {
-  const resultSet = [];
-  if (!data) resultSet;
+  if (!data) return [];
   const index = _binarySearch(data, 0, data.length, target);
-  if (index >= 0) resultSet.push(data[index]);
-  return resultSet;
+  return index >= 0 ? [data[index]] : [];
 };
 
 const _twoSum = (data, target, beginIdx = 0) => {
@@ -64,7 +62,9 @@ const _kSum = (data, k, target, beginIdx = 0) => {
 const kSum = (data, k, target) => {
   if (k <= 0) return [];
   // data needs to be sorted
-  data.sort();
+  // must give custom comparator because JS default is a lexicographical sort
+  // (e.g. convert objects to strings, and sort them in dictionary order)
+  data.sort((a, b) => a - b);
   return _kSum(data, k, target, 0);
 };
 

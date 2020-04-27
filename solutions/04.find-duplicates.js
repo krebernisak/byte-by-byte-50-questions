@@ -4,6 +4,7 @@
 // Answer: https://www.byte-by-byte.com/findduplicates/
 // Tags: [Array]
 
+const naturalOrder = (a, b) => a - b;
 const onlyDuplicates = (val, i, arr) => i !== 0 && val === arr[i - 1];
 const onlyDistinct = (val, i, arr) => i === 0 || val !== arr[i - 1];
 
@@ -19,13 +20,13 @@ const findDuplicates_Set = (data) => {
       }
     }) // find duplicatess
     .filter(onlyDistinct) // remove duplicates from duplicates
-    .sort();
+    .sort(naturalOrder);
 };
 
 const findDuplicates_Sort = (data) => {
   if (!data || data.length === 1) return [];
   return data
-    .sort()
+    .sort(naturalOrder)
     .filter(onlyDuplicates) // find duplicates
     .filter(onlyDistinct); // remove duplicates from duplicates
 };
@@ -50,7 +51,7 @@ const findDuplicates_Encode = (data) => {
       return isDuplicate;
     })
     .filter(onlyDistinct) // remove duplicates from duplicates
-    .sort();
+    .sort(naturalOrder);
 };
 
 const tests = [

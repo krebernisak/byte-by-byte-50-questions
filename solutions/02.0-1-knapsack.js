@@ -46,7 +46,9 @@ const knapsack_TopDown = (items, maxWeight) => {
   if (maxWeight === 0) return 0;
 
   // we need to sort the data ASC for top down solution
-  items.sort();
+  // must give custom comparator because JS default is a lexicographical sort
+  // (e.g. convert objects to strings, and sort them in dictionary order)
+  items.sort((a, b) => a - b);
   const cache = {};
 
   const _knapsack = (weight, i, value) => {
