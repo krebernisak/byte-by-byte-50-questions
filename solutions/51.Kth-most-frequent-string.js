@@ -7,11 +7,16 @@
  */
 
 // O(n + n*log(n))
-const kthMostFrequent = (data, k = 0) => {
+const kthMostFrequent_sort = (data, k = 0) => {
   const counters = {};
   data.forEach((v) => (counters[v] = counters[v] ? counters[v] + 1 : 1));
   const ordered = Object.entries(counters).sort((a, b) => b[1] - a[1]);
   return ordered.length <= k ? null : ordered[k][0];
+};
+
+// O(n + log(n))
+const kthMostFrequent_heap = (data, k = 0) => {
+  // TODO: solve using a heap
 };
 
 const tests = [
@@ -23,7 +28,7 @@ const tests = [
   [["a", "b", "c", "a", "b", "a", "c", "c"], 0, "a"],
   [["a", "b", "c", "a", "b", "a", "c", "c", "c"], 0, "c"],
 ];
-const functions = [kthMostFrequent];
+const functions = [kthMostFrequent_sort];
 
 tests.forEach((v) => {
   functions.forEach((f) => {

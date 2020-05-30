@@ -6,9 +6,11 @@
  */
 
 /**
+ * Generate all permutations of a input string
+ *
  * Time complexity: O(n! / (n - k)!)
  *
- * @param {string} data
+ * @param {string} str text input that will be permuted
  * @return {string[]}
  */
 const permutations_string = (str) => {
@@ -23,9 +25,7 @@ const permutations_string = (str) => {
     if (str.indexOf(char) !== i) continue;
 
     const remainingChars = str.slice(0, i) + str.slice(i + 1, str.length);
-
-    for (let permutation of permutations_string(remainingChars))
-      res.push(char + permutation);
+    permutations_string(remainingChars).forEach((p) => res.push(char + p));
   }
   return res;
 };
