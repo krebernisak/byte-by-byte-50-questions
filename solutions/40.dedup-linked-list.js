@@ -14,12 +14,12 @@ class Node {
   // Generate linked list from array
   static from(arr) {
     let head = null;
-    let prev = null;
-    arr.forEach((v, i) => {
+    let tail = null;
+    arr.forEach((v) => {
       const node = new Node(v);
-      if (i === 0) head = node;
-      if (prev) prev.next = node;
-      prev = node;
+      if (!head) head = node;
+      if (tail) tail.next = node;
+      tail = node;
     });
     return head;
   }
@@ -27,7 +27,7 @@ class Node {
 
 // Remove duplicates from a linked list
 const dedup = (list) => {
-  let set = new Set();
+  const set = new Set();
   let prev = null;
   while (list !== null) {
     if (set.has(list.val)) {

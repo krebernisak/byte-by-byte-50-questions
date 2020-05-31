@@ -53,17 +53,15 @@ const change_bottomUp = (target, coins) => {
   coins = onlyPositive(coins);
   if (target === 0 || !coins.length) return 0;
 
+  // Init cache
   const cache = Array(target + 1)
     .fill()
     .map(() => Array(coins.length + 1).fill(-1));
+  for (let j = 1; j <= coins.length; j++) cache[0][j] = 0;
 
-  for (let i = 0; i <= target; i++) {
+  // Start the calculation
+  for (let i = 1; i <= target; i++) {
     for (let j = 1; j <= coins.length; j++) {
-      if (i === 0) {
-        cache[i][j] = i;
-        continue;
-      }
-
       const c = coins[j - 1];
       const newTarget = i - c; // current target - current coin
       if (newTarget >= 0) {
@@ -83,7 +81,7 @@ const change_bottomUp = (target, coins) => {
 
 const target = 7;
 const coins = [1, 2, 5, 10];
-//       0[ 0, 0, 0, 0, 0];
+//       0[-1, 0, 0, 0, 0];
 //       1[-1, 1, 1, 1, 1];
 //       2[-1, 2, 1, 1, 1];
 //       3[-1, 3, 2, 2, 2];

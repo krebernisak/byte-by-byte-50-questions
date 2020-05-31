@@ -8,9 +8,7 @@
  *   - History and applications: https://en.wikipedia.org/wiki/Gray_code
  */
 
-const grayCode_Count = (a, b) => countBits(a ^ b) === 1;
-
-const countBits = (num) => {
+const _countBits = (num) => {
   let count = 0;
   while (num !== 0) {
     count += num & 1;
@@ -19,9 +17,13 @@ const countBits = (num) => {
   return count;
 };
 
-const grayCode_EraseLowest = (a, b) => {
+const grayCode_countBits = (a, b) => _countBits(a ^ b) === 1;
+
+const _eraseLowestBit = (x) => x & (x - 1);
+
+const grayCode_eraseLowestBit = (a, b) => {
   const diff = a ^ b;
-  return diff > 0 && (diff & (diff - 1)) === 0; // erase lowest bit
+  return diff > 0 && _eraseLowestBit(diff) === 0;
 };
 
 const tests = [
@@ -33,7 +35,7 @@ const tests = [
   [0b1010, 0b1000, true],
   [0b1010, 0b1110, true],
 ];
-const functions = [grayCode_Count, grayCode_EraseLowest];
+const functions = [grayCode_countBits, grayCode_eraseLowestBit];
 
 tests.forEach((v) => {
   functions.forEach((f) => {

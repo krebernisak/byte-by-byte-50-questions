@@ -12,15 +12,15 @@ class Node {
     this.next = next;
   }
 
-  /// Generate linked list from array
+  // Generate linked list from array
   static from(arr) {
     let head = null;
-    let prev = null;
-    arr.forEach((v, i) => {
+    let tail = null;
+    arr.forEach((v) => {
       const node = new Node(v);
-      if (i === 0) head = node;
-      if (prev) prev.next = node;
-      prev = node;
+      if (!head) head = node;
+      if (tail) tail.next = node;
+      tail = node;
     });
     return head;
   }

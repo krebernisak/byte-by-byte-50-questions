@@ -14,7 +14,7 @@ console.log(0xf0000fff >> 0);
 const rotateClockwise = (bits, k) => (bits >>> k) | (bits << (32 - k));
 const rotateCounterClockwise = (bits, k) => (bits << k) | (bits >>> (32 - k));
 
-const rotateClockwise_Stepper = (bits, k) => {
+const rotateClockwise_stepper = (bits, k) => {
   while (k-- > 0) {
     const bit = bits & 1; // get rightmost bit
     bits = bits >>> 1; // shift right
@@ -44,7 +44,7 @@ const tests = [
   [0b1011001110001111000011111000, 2, 0b0010110011100011110000111110],
   // [0b1011001110001111000011111000, 4, 0b1000101100111000111100001111 | 0],
 ];
-const functions = [rotateClockwise, rotateClockwise_Stepper];
+const functions = [rotateClockwise, rotateClockwise_stepper];
 
 tests.forEach((v) => {
   functions.forEach((f) => {

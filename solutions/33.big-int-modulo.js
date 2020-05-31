@@ -6,6 +6,8 @@
  * Tags: [Bitwise]
  */
 
+const BYTE = 8;
+
 /**
  * Calculate modulo of a big number represented as array of bytes
  *
@@ -15,10 +17,8 @@
 const mod = (byteArr, m) => {
   let res = 0;
   byteArr.forEach((val) => {
-    if (val > 2 ** 8 - 1) throw Error(`Non byte: ${val} > ${2 ** 8 - 1}`);
-    res <<= 8;
-    res += val;
-    res %= m;
+    if (val > 2 ** BYTE - 1) throw Error(`Non byte: ${val} > ${2 ** BYTE - 1}`);
+    res = ((res << BYTE) + val) % m;
   });
   return res;
 };

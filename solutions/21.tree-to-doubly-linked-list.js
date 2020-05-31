@@ -61,15 +61,15 @@ const toList = (tree) => {
   let head = null;
   if (!tree) return head;
 
-  let prev = null;
+  let tail = null;
   for (const n of inorder(tree)) {
     if (!head) head = n;
-    if (prev) [prev.right, n.left] = [n, prev];
-    prev = n;
+    if (tail) [tail.right, n.left] = [n, tail];
+    tail = n;
   }
 
   // add cycle
-  [head.left, prev.right] = [prev, head];
+  [head.left, tail.right] = [tail, head];
   return head;
 };
 

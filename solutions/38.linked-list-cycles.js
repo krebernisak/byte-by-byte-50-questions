@@ -14,12 +14,12 @@ class Node {
   // Generate linked list from array
   static from(arr) {
     let head = null;
-    let prev = null;
-    arr.forEach((v, i) => {
+    let tail = null;
+    arr.forEach((v) => {
       const node = new Node(v);
-      if (i === 0) head = node;
-      if (prev) prev.next = node;
-      prev = node;
+      if (!head) head = node;
+      if (tail) tail.next = node;
+      tail = node;
     });
     return head;
   }
@@ -56,18 +56,27 @@ const detectCycle_Set = (node) => getCycleInNode_Set(node) !== null;
 // Floyd's algorithm. Increment one pointer by one and the other by two.
 // If they are ever pointing to the same node, there is a cycle.
 // Explanation: https://www.quora.com/How-does-Floyds-cycle-finding-algorithm-work
-const detectCycle_Floyd = (node) => {
-  if (!node || !node.next) return false;
+const getCycleInNode_Floyd = (node) => {
+  if (!node || !node.next) return null;
   let slow = node;
   let fast = node.next;
   while (fast && fast.next && slow !== fast) {
     slow = slow.next;
     fast = fast.next.next;
   }
-  return slow === fast;
+
+  if (slow !== fast) return null; // no cycle
+  // move slow pointer to the start
+  slow = node;
+  // they will meet again at the node where cycle starts
+  while (slow !== fast) {
+    slow = slow.next;
+    fast = fast.next.next;
+  }
+  return slow;
 };
 
-// TODO: Floyd getCycleInNode_Floyd
+const detectCycle_Floyd = (node) => getCycleInNode_Floyd(node) !== null;
 
 const tests = [
   [[], -1, false],
@@ -103,7 +112,7 @@ tests.forEach((v) => {
     const res = f(v[0], v[1], v[2]);
     console.assert(
       res === true,
-      `Function ${f.name} failed for [${v}] case [Expected: ${v[1]}, Got: ${res}]`
+      `Function ${f.name} failed for [${v}] case [Expected: ${v[2]}, Got: ${res}]`
     );
   });
 });

@@ -36,10 +36,10 @@ const countOnesInBinary_iteration = (num) => {
  * @param {number} num
  */
 const countOnesInBinary_Kernighan = (num) => {
+  const _eraseLowestBit = (x) => x & (x - 1);
   let count = 0;
   while (num !== 0) {
-    // unset the right most bit
-    num &= num - 1;
+    num = _eraseLowestBit(num);
     count++;
   }
   return count;
