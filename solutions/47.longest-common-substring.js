@@ -3,7 +3,7 @@
  * Question: Given two strings, write a function that returns the longest common substring.
  * Answer: https://www.byte-by-byte.com/longestsubstring/
  * Tags: [Recursion][DP]
- * Leetcode similar:
+ * LeetCode similar:
  *   - https://leetcode.com/problems/maximum-length-of-repeated-subarray/
  *   - https://leetcode.com/problems/longest-common-subsequence/
  */
@@ -15,45 +15,38 @@ const longestSubstring_BottomUp = (a, b) => {
   if (!a || !b) return "";
   if (a === b) return a;
 
-  const cache = Array(a.length + 1)
+  const cache = Array(a.length)
     .fill()
-    .map((_) => Array(b.length + 1).fill(0));
+    .map((_) => Array(b.length).fill(0));
 
   let out = "";
   let maxLength = 0;
-  for (let i = 1; i <= a.length; i++) {
-    for (let j = 1; j <= b.length; j++) {
-      if (a[i - 1] === b[j - 1]) cache[i][j] = 1 + cache[i - 1][j - 1];
-      else
-        cache[i][j] = Math.max(
-          cache[i - 1][j],
-          cache[i][j - 1],
-          cache[i - 1][j - 1]
-        );
+  for (let i = 0; i < a.length; i++) {
+    for (let j = 0; j < b.length; j++) {
+      if (a[i] !== b[j]) continue;
+      if (i === 0 || j === 0) cache[i][j] = 1;
+      else cache[i][j] = 1 + cache[i - 1][j - 1];
+      // Check max substring
       if (cache[i][j] > maxLength) {
         maxLength = cache[i][j];
         out = a.substring(i - maxLength + 1, i + 1);
       }
     }
   }
-
-  // maxLength is our bottom right element of 2d dp table
-  assert(maxLength === cache[a.length][b.length]);
   return out;
 };
 
-//  ''  A  B  A  B
-//''[0, 0, 0, 0, 0]
-// B[0, 0, 1, 1, 1]
-// A[0, 1, 1, 2, 2]
-// B[0, 1, 2, 2, 3]
-// A[0, 1, 2, 3, 3]
-//               ^ RESULT
+//   A  B  A  B
+// B[0, 1, 0, 1]
+// A[1, 0, 2, 0]
+// B[0, 2, 0, 3]
+// A[1, 0, 3, 0]
 
 const tests = [
   ["", "", ""],
-  ["ABAB", "BABA", "BAB"],
-  ["ABABAA", "BABAABA", "BABAA"],
+  ["AB", "A", "A"],
+  ["ABAB", "BABA", "ABA"],
+  ["ABABAAA", "BABAABA", "BABAA"],
 ];
 const functions = [longestSubstring_BottomUp];
 
